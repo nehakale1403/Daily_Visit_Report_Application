@@ -3,41 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_dashboard">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_dashboard"
         android:name="com.gsix.dvr_application.ui.dashboard.DashboardFragment"
-        android:label="@string/menu_home"
+        android:label="@string/menu_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_mycheckins"
         android:name="com.gsix.dvr_application.ui.mycheckins.MyCheckinsFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_mycheckins"
         tools:layout="@layout/fragment_mycheckins" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.gsix.dvr_application.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_expenses"
+        android:name="com.gsix.dvr_application.ui.expenses.ExpensesFragment"
+        android:label="@string/menu_expenses"
+        tools:layout="@layout/fragment_expenses" />
 
     <fragment
-        android:id="@+id/nav_tools"
-        android:name="com.gsix.dvr_application.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
+        android:id="@+id/nav_profile"
         android:name="com.gsix.dvr_application.ui.profile.ProfileFragment"
-        android:label="@string/menu_share"
+        android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
-    <fragment
-        android:id="@+id/nav_send"
-        android:name="com.gsix.dvr_application.ui.expenses.ExpensesFragment"
-        android:label="@string/menu_send"
-        tools:layout="@layout/fragment_expenses" />
+
 </navigation>
