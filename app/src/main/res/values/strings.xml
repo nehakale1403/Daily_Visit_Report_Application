@@ -12,4 +12,15 @@
     <string name="menu_mycheckins">My CheckIns</string>
     <string name="menu_expenses">Expenses</string>
     <string name="menu_logout">Logout</string>
+
+    <string name="checkin_now">Checkin Now</string>
+    <string name="expenses_n_bills">Expenses and Bills</string>
+    <string name="todo_list">TODO List</string>
+    <string name="performance">Performance</string>
+
+
+
+
+
+
 </resources>
