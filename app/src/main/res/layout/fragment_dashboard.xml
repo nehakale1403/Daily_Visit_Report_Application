@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="300dp"
+    android:orientation="vertical"
     android:background="@color/colorGray">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="120dp"
+        android:paddingTop="120dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/dashboard_page"
+            android:textSize="30sp"
+            android:textColor="@color/colorWhite"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -35,7 +51,9 @@
 
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp" />
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/checkin" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -43,7 +61,8 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/checkin_now"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -67,7 +86,9 @@
 
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp" />
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/expenses" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,7 +96,8 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/menu_expenses"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -99,7 +121,9 @@
 
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp" />
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/todo" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,7 +131,8 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/todo_list"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -131,7 +156,9 @@
 
                 <ImageView
                     android:layout_width="80dp"
-                    android:layout_height="80dp" />
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/performance" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -139,12 +166,13 @@
                     android:layout_marginTop="12dp"
                     android:text="@string/performance"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:layout_gravity="center"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+</LinearLayout>
 
