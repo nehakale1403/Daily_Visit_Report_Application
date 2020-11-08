@@ -33,6 +33,8 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/checkin_now_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -53,21 +55,26 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
+                    android:contentDescription="@string/checkin_now"
                     app:srcCompat="@drawable/checkin" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:text="@string/checkin_now"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    android:layout_gravity="center"/>
+                    android:textSize="20sp" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/expenses_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -88,21 +95,25 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
+                    android:contentDescription="@string/expenses_n_bills"
                     app:srcCompat="@drawable/expenses" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:text="@string/menu_expenses"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    android:layout_gravity="center"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/todo_list_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -123,21 +134,25 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
+                    android:contentDescription="@string/todo_list"
                     app:srcCompat="@drawable/todo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:text="@string/todo_list"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    android:layout_gravity="center"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/performance_button"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
@@ -158,16 +173,17 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_gravity="center"
+                    android:contentDescription="@string/performance"
                     app:srcCompat="@drawable/performance" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:text="@string/performance"
                     android:textColor="@color/colorWhite"
-                    android:textSize="20sp"
-                    android:layout_gravity="center"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
