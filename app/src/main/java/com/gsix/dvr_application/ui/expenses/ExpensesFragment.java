@@ -16,20 +16,4 @@ import com.gsix.dvr_application.R;
 
 public class ExpensesFragment extends Fragment {
 
-    private ExpensesViewModel expensesViewModel;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        expensesViewModel =
-                ViewModelProviders.of(this).get(ExpensesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_expenses, container, false);
-        final TextView textView = root.findViewById(R.id.text_send);
-        expensesViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
-    }
 }

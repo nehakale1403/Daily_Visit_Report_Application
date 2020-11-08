@@ -23,5 +23,7 @@
     <!--    <string name="performance">Performance</string>-->
     <!--    <string name="performance">Performance</string>-->
 
+    <string name="total_expenditure">Total Expenditure: </string>
+    <string name="no_of_expenditure">Total Count: </string>
 
 </resources>
