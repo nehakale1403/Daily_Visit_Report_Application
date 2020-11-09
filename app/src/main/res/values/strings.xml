@@ -25,5 +25,12 @@
 
     <string name="total_expenditure">Total Expenditure: </string>
     <string name="no_of_expenditure">Total Count: </string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_type">Customer Type</string>
+    <string name="visit_purpose">Visit Purpose</string>
+    <string name="visit_details">Visit Details</string>
+    <string name="ping_for_location">Ping for location</string>
+    <string name="clear">Clear</string>
+    <string name="submit">Submit</string>
 
 </resources>
