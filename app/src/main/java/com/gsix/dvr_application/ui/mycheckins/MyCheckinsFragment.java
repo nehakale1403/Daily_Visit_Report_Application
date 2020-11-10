@@ -16,4 +16,5 @@ import com.gsix.dvr_application.R;
 
 public class MyCheckinsFragment extends Fragment {
 
+
 }
