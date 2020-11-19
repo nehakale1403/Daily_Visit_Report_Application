@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DVR_Application</string>
+    <string name="app_name">DVR Application</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Daily Visit Report</string>
@@ -32,5 +32,7 @@
     <string name="ping_for_location">Ping for location</string>
     <string name="clear">Clear</string>
     <string name="submit">Submit</string>
+    <string name="rank">Rank</string>
+    <string name="check_in">Check in</string>
 
 </resources>
