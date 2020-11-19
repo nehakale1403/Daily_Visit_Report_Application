@@ -35,7 +35,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="40dp"
-        android:backgroundTint="@color/colorWhite"
+        android:background="@color/colorRed"
         android:src="@drawable/ic_addbutton" />
 
 

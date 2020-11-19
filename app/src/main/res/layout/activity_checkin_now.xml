@@ -119,10 +119,10 @@
                 <EditText
                     android:id="@+id/editvisdetail"
                     android:layout_width="match_parent"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_height="wrap_content"/>
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp" />
 
             </LinearLayout>
 
