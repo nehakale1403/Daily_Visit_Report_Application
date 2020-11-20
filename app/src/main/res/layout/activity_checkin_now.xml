@@ -22,6 +22,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:cardBackgroundColor="@color/colorRed"/>
 
+
+
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
