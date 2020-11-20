@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="@color/colorGray">
 
     <RelativeLayout
@@ -21,53 +20,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:cardBackgroundColor="@color/colorRed">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="@string/customer_name"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:padding="5dp"
-                    android:text="@string/Visit_purpose"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold"/>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-
-        <ListView
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/top_card">
-        </ListView>
+            app:cardBackgroundColor="@color/colorRed"/>
 
     </RelativeLayout>
-
-
-=======
-    android:background="@color/colorGray"
-    tools:context=".CheckinNowActivity">
->>>>>>> e0f3b56cf8142008fc0358bd12a8b26f9ce84658
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
