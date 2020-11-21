@@ -23,7 +23,13 @@
     <!--    <string name="performance">Performance</string>-->
     <!--    <string name="performance">Performance</string>-->
 
+    <string name="employee_id">Employee ID</string>
+    <string name="employee_password">Password</string>
+
     <string name="total_expenditure">Total Expenditure: </string>
     <string name="no_of_expenditure">Total Count: </string>
+
+    <string name="customer_name">Customer Name</string>
+    <string name="Visit_purpose">Visit Puropse</string>
 
 </resources>
