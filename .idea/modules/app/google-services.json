@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "275401909637",
+    "firebase_url": "https://dvrapplication.firebaseio.com",
+    "project_id": "dvrapplication",
+    "storage_bucket": "dvrapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275401909637:android:8aa86ebce6e514dcb390ec",
+        "android_client_info": {
+          "package_name": "com.gsix.dvr_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275401909637-epmtvpqsf41kqso0hlahv4pnl23t3qjb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gsix.dvr_application",
+            "certificate_hash": "22b2f4879c03dbee2c229d5745a1a132f9331628"
+          }
+        },
+        {
+          "client_id": "275401909637-pqb76aiog6u05vak1l9m82h2rig9gqnh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gsix.dvr_application",
+            "certificate_hash": "5958b7194d6cf3349f6e11f344370e6caf2c6744"
+          }
+        },
+        {
+          "client_id": "275401909637-3qvd8f4vd9glrah5vt9mcaq0gkredmnm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbLrDG_KKz08Vrg5vfaifXjuXEfERpJHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275401909637-3qvd8f4vd9glrah5vt9mcaq0gkredmnm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

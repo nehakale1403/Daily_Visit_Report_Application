@@ -16,12 +16,9 @@ import com.gsix.dvr_application.R;
 
 public class MyCheckinsFragment extends Fragment {
 
-<<<<<<< HEAD
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mycheckins, container, false);
        return view;
     }
-=======
 
->>>>>>> e0f3b56cf8142008fc0358bd12a8b26f9ce84658
 }

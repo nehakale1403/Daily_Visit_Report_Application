@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/colorGray"
     tools:context=".MainActivity">
 
@@ -44,11 +43,9 @@
         android:layout_height="58dp"
         android:layout_marginTop="24dp"
         android:background="#11000000"
-     android:drawableLeft="@drawable/ic_action_lock"
-
+        android:drawableLeft="@drawable/ic_action_lock"
         android:ems="10"
         android:hint="@string/employee_password"
-
         android:inputType="textPassword"
         android:textColor="@color/colorWhite"
         android:textColorHint="@color/colorWhite"
