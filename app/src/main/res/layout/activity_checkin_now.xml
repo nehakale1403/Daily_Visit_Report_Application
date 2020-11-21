@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@color/colorGray">
 
     <RelativeLayout
@@ -61,5 +63,168 @@
     </RelativeLayout>
 
 
+=======
+    android:background="@color/colorGray"
+    tools:context=".CheckinNowActivity">
+>>>>>>> e0f3b56cf8142008fc0358bd12a8b26f9ce84658
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/colorBlue"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutlinear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/customer_name"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#131313"/>
+
+                <EditText
+                    android:id="@+id/editname"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutlinear2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/customer_type"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#131313"/>
+
+                <Spinner
+                    android:id="@+id/spinnercustomertype"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="40dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutlinear3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visit_purpose"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#131313"/>
+
+                <Spinner
+                    android:id="@+id/spinnervisitpurp"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="40dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutshoulder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/visit_details"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#131313"/>
+
+                <EditText
+                    android:id="@+id/editvisdetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#3D4EB6"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="#ffff"
+                android:layout_margin="20dp"
+                android:drawableStart="@drawable/locationimg"
+                android:text="@string/ping_for_location"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/clearbtn"
+                    android:layout_width="wrap_content"
+                    android:text="@string/clear"
+                    android:background="#C6386C"
+                    android:textColor="#ffff"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/submitbtn"
+                    android:layout_width="wrap_content"
+                    android:text="@string/submit"
+                    android:background="#13232B"
+                    android:textColor="#ffff"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="40dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
