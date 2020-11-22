@@ -52,7 +52,7 @@
 
 
         <ListView
-            android:id="@+id/list"
+            android:id="@+id/id_list_view_expenses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/top_card">

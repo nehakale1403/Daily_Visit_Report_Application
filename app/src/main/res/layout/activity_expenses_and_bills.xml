@@ -23,6 +23,7 @@
             app:cardBackgroundColor="@color/colorBlue">
 
             <LinearLayout
+                android:id="@+id/id_cardview_expenses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -31,21 +32,23 @@
                 tools:layout_editor_absoluteY="16dp">
 
                 <TextView
+                    android:id="@+id/id_total_expenses"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="@string/total_expenditure"
                     android:textColor="@color/colorWhite"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/id_total_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:padding="5dp"
                     android:text="@string/no_of_expenditure"
                     android:textColor="@color/colorWhite"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -53,14 +56,22 @@
 
 
         <ListView
-            android:id="@+id/list"
+            android:id="@+id/id_list_view_expenses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/top_card">
         </ListView>
 
-    </RelativeLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/id_fab_expenses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="40dp"
+            android:src="@drawable/ic_addbutton" />
 
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
