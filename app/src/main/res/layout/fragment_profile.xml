@@ -53,13 +53,14 @@
         android:textColor="@android:color/white"
         android:textSize="20dp"
         android:layout_marginLeft="5dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Darshan"
-        android:layout_marginLeft="25dp"
-        android:textSize="18dp"
-        android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/profilefirstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
 
 
@@ -94,13 +95,14 @@
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"/>
+
         <TextView
+            android:id="@+id/profilelastname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Deshmukh"
             android:layout_marginLeft="25dp"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
 
 
@@ -138,10 +140,10 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/profileemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="darshandeshmukh14@gmail.com"
             android:textColor="@android:color/white"
             android:textSize="18dp" />
 
@@ -176,13 +178,14 @@
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"/>
+
         <TextView
+            android:id="@+id/profilemobile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="8005492694"
             android:layout_marginLeft="25dp"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
 
 
@@ -216,13 +219,14 @@
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"/>
+
         <TextView
+            android:id="@+id/profileempID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="141298"
             android:layout_marginLeft="25dp"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
 
 
@@ -256,13 +260,14 @@
             android:textColor="@android:color/white"
             android:textSize="20dp"
             android:layout_marginLeft="5dp"/>
+
         <TextView
+            android:id="@+id/profileaddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Saoji layout, Nandura Road, Khamgaon"
             android:layout_marginLeft="25dp"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="18dp" />
 
 
 
