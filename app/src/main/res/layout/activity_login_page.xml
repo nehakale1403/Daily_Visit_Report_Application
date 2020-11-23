@@ -18,6 +18,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/employeelogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Employee Login"
+        android:textColor="#ffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/employeeID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:ignore="MissingConstraints" />
+
     <EditText
         android:id="@+id/employeeID"
         android:layout_width="278dp"
@@ -25,6 +40,7 @@
         android:layout_weight="1"
         android:background="#11000000"
         android:ems="10"
+        android:padding="10dp"
         android:hint="@string/email_id"
         android:inputType="textPersonName"
         android:textColor="@color/colorWhite"
@@ -43,6 +59,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="24dp"
         android:background="#11000000"
+        android:padding="10dp"
         android:drawableStart="@drawable/ic_action_lock"
         android:ems="10"
         android:hint="@string/employee_password"
@@ -79,7 +96,11 @@
         android:textColor="#ffff"
         android:textStyle="bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="617dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginbutton"
+        app:layout_constraintVertical_bias="0.263" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

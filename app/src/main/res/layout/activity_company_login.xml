@@ -96,6 +96,16 @@
             android:textColor="@color/colorWhite"
             android:text="@string/don_t_have_an_account_register" />
 
+        <TextView
+            android:id="@+id/textViewemployeelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorWhite"
+            android:text="@string/login_as_employee" />
+
     </LinearLayout>
     </ScrollView>
 
