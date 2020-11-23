@@ -14,7 +14,7 @@
         <activity android:name=".CompanyDashboard"></activity>
         <activity android:name=".CompanyRegister" />
         <activity android:name=".CompanyLogin" />
-        <activity android:name=".add_expense" />
+        <activity android:name=".AddExpenseActivity" />
         <activity android:name=".PerformanceActivity" />
         <activity android:name=".Login_Page">
             <intent-filter>
