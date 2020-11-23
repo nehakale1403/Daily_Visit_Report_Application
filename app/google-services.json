@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "275401909637-epmtvpqsf41kqso0hlahv4pnl23t3qjb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gsix.dvr_application",
+            "certificate_hash": "22b2f4879c03dbee2c229d5745a1a132f9331628"
+          }
+        },
+        {
           "client_id": "275401909637-pqb76aiog6u05vak1l9m82h2rig9gqnh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
