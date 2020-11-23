@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray"
+    tools:context=".CompanyRegister">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:background="@color/colorRed"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/view2"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewregisterascomp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/register_as_company"
+                android:textSize="24sp"
+                android:layout_marginBottom="30dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/compemail1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="#11000000"
+                android:ems="10"
+                android:textSize="22sp"
+                android:hint="@string/email_id"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:drawableStart="@drawable/ic_action_name"
+                android:autofillHints="" />
+
+            <EditText
+                android:id="@+id/comppassword1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="10dp"
+                android:background="#11000000"
+                android:textSize="22sp"
+                android:drawableStart="@drawable/ic_action_lock"
+                android:ems="10"
+                android:hint="@string/employee_password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:autofillHints="" />
+            <EditText
+                android:id="@+id/comppassword2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:padding="10dp"
+                android:background="#11000000"
+                android:textSize="22sp"
+                android:drawableStart="@drawable/ic_action_lock"
+                android:ems="10"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:autofillHints="" />
+
+            <Button
+                android:id="@+id/buttonregister"
+                android:layout_width="match_parent"
+                android:layout_margin="30dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_custom"
+                android:text="@string/register"
+                android:layout_marginTop="20dp"
+                android:textColor="#ffff"
+                android:textStyle="bold"
+                android:textColorHint="#00C03D3D"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewalreadylogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorWhite"
+                android:text="@string/already_have_an_account_login" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class Login_Page extends AppCompatActivity {
+        private TextView btncompany;
         EditText email;
         EditText pass;
 
@@ -32,8 +34,16 @@ public class Login_Page extends AppCompatActivity {
             email = (EditText) findViewById(R.id.employeeID);
             pass = (EditText) findViewById(R.id.PasswordID);
             login = (Button) findViewById(R.id.loginbutton);
+            btncompany =(TextView) findViewById(R.id.btncompany);
             fAuth= FirebaseAuth.getInstance();
 
+            btncompany.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent=new Intent(getApplicationContext(),CompanyLogin.class);
+                    startActivity(intent);
+                }
+            });
             authStateListener = new FirebaseAuth.AuthStateListener() {
                 @Override
                 public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {

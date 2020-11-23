@@ -37,5 +37,13 @@
     <string name="submit">Submit</string>
     <string name="rank">Rank</string>
     <string name="check_in">Check in</string>
+    <string name="company_login">Company Login</string>
+    <string name="login">Login</string>
+    <string name="email_id">Email Id</string>
+    <string name="don_t_have_an_account_register">Do not have an account? Register</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="register_as_company">Register as Company</string>
 
 </resources>
