@@ -46,5 +46,7 @@
     <string name="already_have_an_account_login">Already have an account? Login</string>
     <string name="register_as_company">Register as Company</string>
     <string name="login_as_employee">Login as employee</string>
+    <string name="add_employee">Add Employee</string>
+    <string name="logout1">Logout</string>
 
 </resources>

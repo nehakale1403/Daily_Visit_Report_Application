@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +19,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
@@ -32,7 +36,7 @@ public class CompanyLogin extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ProgressDialog loadingbar;
     private FirebaseUser currentuser;
-    private DatabaseReference userref;
+    private DatabaseReference rootref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +52,7 @@ public class CompanyLogin extends AppCompatActivity {
         getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
         currentuser=mAuth.getCurrentUser();
-        userref= FirebaseDatabase.getInstance().getReference().child("Company");
+        rootref= FirebaseDatabase.getInstance().getReference();
         textViewemployeelogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,8 +101,34 @@ public class CompanyLogin extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-                                            Intent intent=new Intent(getApplicationContext(), CompanyDashboard.class);
-                                            startActivity(intent);
+                                            String Currentuserid=mAuth.getCurrentUser().getUid();
+                                            rootref.child("users").child(Currentuserid).child("type").addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    if((snapshot.exists()))
+                                                    {
+                                                        String type=snapshot.getValue().toString();
+                                                        if(type.equals("company")) {
+                                                            Intent intent = new Intent(getApplicationContext(), CompanyDashboard.class);
+                                                            startActivity(intent);
+                                                            loadingbar.dismiss();
+                                                        }
+                                                        else{
+                                                            Toast.makeText(getApplicationContext(),"Try to login in employee section.",Toast.LENGTH_SHORT).show();
+                                                            loadingbar.dismiss();
+                                                        }
+                                                    }
+                                                    else{
+                                                        Toast.makeText(getApplicationContext(),"Login Error.",Toast.LENGTH_SHORT).show();
+                                                        loadingbar.dismiss();
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
                                             loadingbar.dismiss();
 
                                         } else {

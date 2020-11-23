@@ -3,7 +3,7 @@
     package="com.gsix.dvr_application">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CompanyDashboard"></activity>
+        <activity android:name=".AddEmployeeActivity"></activity>
+        <activity android:name=".CompanyDashboard" />
         <activity android:name=".CompanyRegister" />
         <activity android:name=".CompanyLogin" />
         <activity android:name=".AddExpenseActivity" />
