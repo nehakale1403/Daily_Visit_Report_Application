@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,7 +14,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
 
 
 public class ExpensesAndBillsActivity extends AppCompatActivity {
@@ -60,7 +58,7 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(ExpensesAndBillsActivity.this, add_expense.class));
+                startActivity(new Intent(ExpensesAndBillsActivity.this, AddExpenseActivity.class));
                 finish(); //it doesn't stack up previous activities
             }
         });
