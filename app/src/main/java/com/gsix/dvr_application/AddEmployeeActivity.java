@@ -83,6 +83,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
                                                 String currentuserid=mAuth.getCurrentUser().getUid();
                                                 Rootreference.child("Employees").child(currentuserid).child("details").child("email").setValue(email);
                                                 Rootreference2.child("users").child(currentuserid).child("type").setValue("employee");
+                                                Rootreference2.child("users").child(currentuserid).child("CompanyId").setValue(CompUserId);
                                                 Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();
                                                 Intent intent=new Intent(getApplicationContext(), CompanyDashboard.class);
                                                 intent.putExtra("CompUserId",CompUserId);
