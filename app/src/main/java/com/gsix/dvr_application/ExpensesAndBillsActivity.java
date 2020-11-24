@@ -56,7 +56,7 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
 
         mDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mDatabase.getReference().child("Expenses"); //getting the link of our database
+        mDatabaseReference = mDatabase.getReference().child("Expense"); //getting the link of our database
         mDatabaseReference.keepSynced(true);
 
         expenseList = new ArrayList<>();
@@ -64,6 +64,9 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        expenseRecyclerAdapter = new ExpenseRecyclerAdapter(ExpensesAndBillsActivity.this,
+                expenseList);
+        recyclerView.setAdapter(expenseRecyclerAdapter);
 
         add_exp_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,11 +88,6 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
                 Expense expense = snapshot.getValue(Expense.class);
                 expenseList.add(expense);
-
-                expenseRecyclerAdapter = new ExpenseRecyclerAdapter(ExpensesAndBillsActivity.this,
-                        expenseList);
-                recyclerView.setAdapter(expenseRecyclerAdapter);
-
                 expenseRecyclerAdapter.notifyDataSetChanged();
 
             }
