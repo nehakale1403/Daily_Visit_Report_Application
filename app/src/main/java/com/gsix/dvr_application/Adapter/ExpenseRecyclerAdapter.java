@@ -12,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.gsix.dvr_application.Model.Expense;
 import com.gsix.dvr_application.R;
+import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -45,12 +47,16 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         holder.title.setText(expense.getTitle());
         holder.description.setText(expense.getDesc());
 
-        java.text.DateFormat dateFormat = java.text.DateFormat.getDateInstance();
+        DateFormat dateFormat = DateFormat.getDateInstance();
         String formattedDate = dateFormat.format(new Date(Long.valueOf(expense.getTimestamp())).getTime());
 
         holder.timestamp.setText(formattedDate);
 
         imageurl = expense.getImage();
+
+        //to load images in the recycler view
+
+        Picasso.get().load(imageurl).into(holder.image);
 
 
 
@@ -58,7 +64,7 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
 
     @Override
     public int getItemCount() {
-        return 0;
+        return expenseList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

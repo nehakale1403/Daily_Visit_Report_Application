@@ -32,6 +32,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
     private ImageButton billImage;
     private EditText expenseTitle;
+    private EditText amount;
     private EditText expenseDesc;
     private Button submitBillBtn;
     private StorageReference mStorage;
@@ -57,6 +58,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
         billImage = (ImageButton) findViewById(R.id.add_image_btn_id);
         expenseTitle = (EditText) findViewById(R.id.id_expense_title);
+        amount = (EditText) findViewById(R.id.id_amount);
         expenseDesc = (EditText) findViewById(R.id.id_expense_description);
         submitBillBtn = (Button) findViewById(R.id.submit_expense_id);
 
@@ -103,8 +105,10 @@ public class AddExpenseActivity extends AppCompatActivity {
 
         final String titleVal = expenseTitle.getText().toString().trim();
         final String descVal = expenseDesc.getText().toString().trim();
+        final String amountVal = amount.getText().toString().trim();
 
-        if (!TextUtils.isEmpty(titleVal) && !TextUtils.isEmpty(descVal) && imageUri != null){
+        if (!TextUtils.isEmpty(titleVal) && !TextUtils.isEmpty(descVal) && !TextUtils.isEmpty(amountVal)
+                && imageUri != null){
 
             //start uploading
             StorageReference filepath = mStorage.child("Bills").child(imageUri.getLastPathSegment());
@@ -119,6 +123,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
                     Map<String, String> dataToSave = new HashMap<>();
                     dataToSave.put("title", titleVal);
+                    dataToSave.put("amount", amountVal);
                     dataToSave.put("description", descVal);
                     dataToSave.put("image", downloadUrl.toString());
                     dataToSave.put("timestamp",String.valueOf(java.lang.System.currentTimeMillis()));
