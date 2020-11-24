@@ -54,13 +54,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/id_add_expense_btn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/top_card"
-            android:layout_marginTop="11dp" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/id_fab_expenses"
             android:layout_width="wrap_content"
@@ -69,6 +62,26 @@
             android:layout_alignParentBottom="true"
             android:layout_margin="40dp"
             android:src="@drawable/ic_addbutton" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_card">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/id_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:flow_horizontalAlign="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="17dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     </RelativeLayout>
 
