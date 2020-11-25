@@ -1,5 +1,6 @@
 package com.gsix.dvr_application;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +29,7 @@ import com.gsix.dvr_application.Model.Expense;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class AddExpenseActivity extends AppCompatActivity {
 
@@ -89,7 +92,7 @@ public class AddExpenseActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == GALLERY_CODE && resultCode == RESULT_OK){
+        if (requestCode == GALLERY_CODE && resultCode == RESULT_OK) {
 
             imageUri = data.getData();
             billImage.setImageURI(imageUri);
@@ -107,34 +110,48 @@ public class AddExpenseActivity extends AppCompatActivity {
         final String amountVal = amount.getText().toString().trim();
 
         if (!TextUtils.isEmpty(titleVal) && !TextUtils.isEmpty(descVal) && !TextUtils.isEmpty(amountVal)
-                && imageUri != null){
+                && imageUri != null) {
 
-            //start uploading
-            StorageReference filepath = mStorage.child("Bills").child(imageUri.getLastPathSegment());
+            final StorageReference storageRef = FirebaseStorage.getInstance().getReference()
+                    .child("images/" + UUID.randomUUID().toString());
 
-            filepath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            final StorageReference filepath = mStorage.child("Bills").child(imageUri.getLastPathSegment());
+
+            storageRef.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                 @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 
-                    Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                    if (task.isSuccessful()) {
 
-                    DatabaseReference newPost = mDatabaseReference.push();
+                        storageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                String URL = uri.toString();
 
-                    Map<String, String> dataToSave = new HashMap<>();
-                    dataToSave.put("title", titleVal);
-                    dataToSave.put("amount", amountVal);
-                    dataToSave.put("description", descVal);
-                    dataToSave.put("image", downloadUrl.toString());
-                    dataToSave.put("timestamp",String.valueOf(java.lang.System.currentTimeMillis()));
+                                DatabaseReference newPost = mDatabaseReference.push();
 
-                    newPost.setValue(dataToSave);
+                                Map<String, String> dataToSave = new HashMap<>();
+                                dataToSave.put("title", titleVal);
+                                dataToSave.put("amount", amountVal);
+                                dataToSave.put("description", descVal);
+                                dataToSave.put("image", URL);
+                                dataToSave.put("timestamp", String.valueOf(java.lang.System.currentTimeMillis()));
 
-                    progressDlg.dismiss();
+                                newPost.setValue(dataToSave);
 
-                    startActivity( new Intent(AddExpenseActivity.this, ExpensesAndBillsActivity.class));
-                    finish();
+                            }
+                        });
+
+                    }
+
                 }
             });
+
+            progressDlg.dismiss();
+
+            startActivity(new Intent(AddExpenseActivity.this, ExpensesAndBillsActivity.class));
+            finish();
         }
     }
+
 }

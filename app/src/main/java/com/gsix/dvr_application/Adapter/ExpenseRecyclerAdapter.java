@@ -27,7 +27,6 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
-    private StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
         this.expenseList  = expenseList;

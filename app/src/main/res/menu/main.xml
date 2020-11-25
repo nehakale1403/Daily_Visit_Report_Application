@@ -6,15 +6,13 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
-<<<<<<< HEAD
+
     <item
         android:id="@+id/logout1"
-        android:title="@string/logout"
-=======
+        android:title="@string/logout"/>
 
     <item
         android:id="@+id/logout"
         android:title="@string/logout1"
->>>>>>> f05ee769695b86c0781c3e7dec1a03ca2c1892b5
         app:showAsAction="never" />
 </menu>
