@@ -58,8 +58,6 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
 
         Picasso.get().load(imageurl).into(holder.image);
 
-
-
     }
 
     @Override
