@@ -63,23 +63,15 @@
             android:layout_margin="40dp"
             android:src="@drawable/ic_addbutton" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/top_card">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/id_recycler_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:flow_horizontalAlign="center"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="17dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/top_card"
+                android:layout_marginTop="10dp"
+                app:flow_horizontalAlign="center" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

@@ -101,7 +101,7 @@ public class CompanyLogin extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()) {
-                                            String Currentuserid=mAuth.getCurrentUser().getUid();
+                                            final String Currentuserid=mAuth.getCurrentUser().getUid();
                                             rootref.child("users").child(Currentuserid).child("type").addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -110,6 +110,7 @@ public class CompanyLogin extends AppCompatActivity {
                                                         String type=snapshot.getValue().toString();
                                                         if(type.equals("company")) {
                                                             Intent intent = new Intent(getApplicationContext(), CompanyDashboard.class);
+                                                            intent.putExtra("CompUserId",Currentuserid);
                                                             startActivity(intent);
                                                             loadingbar.dismiss();
                                                         }

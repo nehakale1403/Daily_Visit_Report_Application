@@ -26,7 +26,7 @@ public class CompanyDashboard extends AppCompatActivity {
         addemployee=(Button)findViewById(R.id.addemployee);
         mAuth=FirebaseAuth.getInstance();
         CompUser=mAuth.getCurrentUser();
-        CompUserId=mAuth.getCurrentUser().getUid();
+        CompUserId=getIntent().getExtras().get("CompUserId").toString();
         addemployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

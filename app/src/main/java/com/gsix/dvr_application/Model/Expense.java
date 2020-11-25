@@ -2,6 +2,12 @@ package com.gsix.dvr_application.Model;
 
 public class Expense {
 
+    public String title;
+    public String amount;
+    public String description;
+    public String image;
+    public String timestamp;
+
     public Expense(String title,String amount, String description, String image, String timestamp, String userid){
 
         this.title = title;
@@ -9,16 +15,9 @@ public class Expense {
         this.description = description;
         this.image = image;
         this.timestamp = timestamp;
-        this.userid = userid;
     }
 
 
-    public String title;
-    public String amount;
-    public String description;
-    public String image;
-    public String timestamp;
-    public String userid;
 
     public Expense(){
 
@@ -64,13 +63,6 @@ public class Expense {
         this.timestamp = timestamp;
     }
 
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
 
 
 }
