@@ -20,6 +20,9 @@
                 android:id="@+id/bill_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="center"
                 android:src="@drawable/expenses" />
 
             <TextView
@@ -27,6 +30,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:text="Expense Title"
                 android:layout_below="@id/bill_image"
                 android:textSize="16sp"
@@ -36,12 +40,14 @@
                 android:id="@+id/amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_below="@id/expense_title"
                 android:text="Amount: "/>
 
             <TextView
                 android:id="@+id/dateText"
                 android:text="Date Text"
+                android:padding="5dp"
                 android:layout_below="@+id/amount"
                 android:textStyle="italic"
                 android:layout_width="wrap_content"

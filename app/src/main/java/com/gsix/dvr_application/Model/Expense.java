@@ -8,7 +8,7 @@ public class Expense {
     public String image;
     public String timestamp;
 
-    public Expense(String title,String amount, String description, String image, String timestamp, String userid){
+    public Expense(String title,String amount, String description, String image, String timestamp){
 
         this.title = title;
         this.amount = amount;
