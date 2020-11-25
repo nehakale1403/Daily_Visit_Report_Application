@@ -1,15 +1,20 @@
 package com.gsix.dvr_application.Adapter;
 
 import android.content.Context;
+import android.media.Image;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.gsix.dvr_application.ExpensesAndBillsActivity;
 import com.gsix.dvr_application.Model.Expense;
 import com.gsix.dvr_application.R;
@@ -22,6 +27,7 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
+    private StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
         this.expenseList  = expenseList;
@@ -40,11 +46,17 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Expense expense = expenseList.get(position);
-        holder.title.setText(expense.getTitle());
-        holder.description.setText(expense.getAmount());
+        //Instead of creating new view for each new row, an old view is recycled
+        //and reused by binding new data to it. This happens exactly in onBindViewHolder()
 
-        holder.timestamp.setText(expense.getTimestamp());
+        Expense expense = expenseList.get(position);
+
+        holder.title.setText(expense.getTitle());
+        holder.amount.setText("Amount: " + expense.getAmount() + "Rs.");
+
+        DateFormat dateFormat = DateFormat.getDateInstance();
+        String formattedDate = dateFormat.format(new Date(Long.valueOf(expense.getTimestamp())).getTime());
+        holder.timestamp.setText(formattedDate);
 
         String imageurl = expense.getImage();
         Picasso.get().load(imageurl).into(holder.image);
@@ -60,6 +72,7 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
 
         public TextView title;
         public TextView description;
+        public TextView amount;
         public TextView timestamp;
         public ImageView image;
 
@@ -67,7 +80,7 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
              super(view);
 
             title = (TextView) view.findViewById(R.id.expense_title);
-            description = (TextView) view.findViewById(R.id.amount);
+            amount = (TextView) view.findViewById(R.id.amount);
             image = (ImageView) view.findViewById(R.id.bill_image);
             timestamp = (TextView) view.findViewById(R.id.dateText);
         }

@@ -62,7 +62,6 @@ public class AddExpenseActivity extends AppCompatActivity {
         expenseDesc = (EditText) findViewById(R.id.id_expense_description);
         submitBillBtn = (Button) findViewById(R.id.submit_expense_id);
 
-        Toast.makeText(AddExpenseActivity.this, mStorage.toString(), Toast.LENGTH_LONG).show();
 
         billImage.setOnClickListener(new View.OnClickListener() {
             @Override
