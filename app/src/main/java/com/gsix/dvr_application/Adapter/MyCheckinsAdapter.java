@@ -1,6 +1,5 @@
 package com.gsix.dvr_application.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +8,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gsix.dvr_application.AddMycheckins;
 import com.gsix.dvr_application.Model.Mycheckins;
 import com.gsix.dvr_application.R;
+import com.gsix.dvr_application.ui.mycheckins.MyCheckinsFragment;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.ViewHolder> {
@@ -22,7 +19,7 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
     private List<Mycheckins> Mycheckinslist;
 
 
-    public MyCheckinsAdapter(AddMycheckins addMycheckins, List<Mycheckins> mycheckinslist) {
+    public MyCheckinsAdapter(MyCheckinsFragment myCheckinsFragment, List<Mycheckins> mycheckinslist) {
 
        this.Mycheckinslist = mycheckinslist;
     }
@@ -30,7 +27,8 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_mycheckins,parent,false);
+
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.mycheckin_item,parent,false);
         return new ViewHolder(view);
     }
 
@@ -39,7 +37,7 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
 
         Mycheckins mycheckins=Mycheckinslist.get(position);
 
-        holder.Customername.setText(mycheckins.getCustomerNmae());
+        holder.Customername.setText(mycheckins.getCustomerName());
         holder.visitpurpose.setText(mycheckins.getVisitpurpose());
         //DateFormat dateFormat = DateFormat.getDateInstance();
         //String formattedDate = dateFormat.format(new Date(Long.valueOf(Mycheckins.getTimestamp())).getTime());
