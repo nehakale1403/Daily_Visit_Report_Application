@@ -51,5 +51,6 @@
     <string name="add_employee">Add Employee</string>
     <string name="logout1">Logout</string>
     <string name="todo1">TODO</string>
+    <string name="customer_nameID">Cutomer Name</string>
 
 </resources>

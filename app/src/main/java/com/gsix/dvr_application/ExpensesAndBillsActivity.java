@@ -76,6 +76,14 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
                 finish(); //it doesn't stack up previous activities
             }
         });
+
+        refreshData();
+    }
+
+    private void refreshData() {
+
+        
+
     }
 
     @Override
