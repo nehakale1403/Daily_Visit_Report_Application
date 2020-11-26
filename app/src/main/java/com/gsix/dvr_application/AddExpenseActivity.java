@@ -151,6 +151,9 @@ public class AddExpenseActivity extends AppCompatActivity {
 
             startActivity(new Intent(AddExpenseActivity.this, ExpensesAndBillsActivity.class));
             finish();
+        }else {
+            progressDlg.dismiss();
+            Toast.makeText(AddExpenseActivity.this, "Please fill all the fields...", Toast.LENGTH_LONG).show();
         }
     }
 

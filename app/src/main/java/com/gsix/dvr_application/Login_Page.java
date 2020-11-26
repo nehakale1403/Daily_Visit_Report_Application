@@ -34,8 +34,8 @@ public class Login_Page extends AppCompatActivity {
         FirebaseAuth fAuth;
         private FirebaseAuth.AuthStateListener authStateListener;
         DatabaseReference rootref;
-    private ProgressDialog loadingbar;
-    AlertDialog.Builder build;
+        private ProgressDialog loadingbar;
+        AlertDialog.Builder build;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +63,7 @@ public class Login_Page extends AppCompatActivity {
                 public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                     FirebaseUser mfirebaseuser = fAuth.getCurrentUser();
                     if (mfirebaseuser != null) {
-                        Toast.makeText(Login_Page.this, "logged in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Page.this, "Logged in", Toast.LENGTH_SHORT).show();
                         Intent I = new Intent(Login_Page.this, MainActivity.class);
                         startActivity(I);
                     }
@@ -87,7 +87,8 @@ public class Login_Page extends AppCompatActivity {
                         pass.setError("Please enter password");
                         pass.requestFocus();
                     } else if (mail.isEmpty() && Password.isEmpty()) {
-                        Toast.makeText(Login_Page.this, "Fields are empty", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Page.this, "Please provide username and password",
+                                Toast.LENGTH_SHORT).show();
                     } else {
                         loadingbar.setTitle("Please Wait....");
                         loadingbar.setCanceledOnTouchOutside(false);
@@ -96,7 +97,9 @@ public class Login_Page extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(Login_Page.this, "Login error", Toast.LENGTH_SHORT).show();
+                                    loadingbar.dismiss();
+                                    Toast.makeText(Login_Page.this, "Invalid username or password",
+                                            Toast.LENGTH_SHORT).show();
                                 } else {
                                     String Currentuserid=fAuth.getCurrentUser().getUid();
                                     rootref.child("users").child(Currentuserid).child("type").addValueEventListener(new ValueEventListener() {
