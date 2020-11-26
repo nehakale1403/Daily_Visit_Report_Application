@@ -50,5 +50,6 @@
     <string name="login_as_employee">Login as employee</string>
     <string name="add_employee">Add Employee</string>
     <string name="logout1">Logout</string>
+    <string name="todo1">TODO</string>
 
 </resources>
