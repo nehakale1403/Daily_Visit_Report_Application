@@ -61,7 +61,6 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
         expenseList = new ArrayList<>();
 
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         expenseRecyclerAdapter = new ExpenseRecyclerAdapter(ExpensesAndBillsActivity.this,
@@ -78,13 +77,17 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
         });
 
         refreshData();
-    }
 
-    private void refreshData() {
-
-        
 
     }
+
+    private void refreshData(){
+
+//        total_expenditure.setText("Total Expenditure: " + expenseRecyclerAdapter.getTotalExpenditure()));
+//        total_count.setText("Total Count: " + );
+
+    }
+
 
     @Override
     protected void onStart() {

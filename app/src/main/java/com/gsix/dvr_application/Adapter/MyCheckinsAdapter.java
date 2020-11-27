@@ -60,6 +60,7 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
             super(View);
             Customername = (TextView) View.findViewById(R.id.customerNID);
             visitpurpose = (TextView) View.findViewById(R.id.visitID);
+//            customertype=(TextView) View.findViewById(R.id.customer_type);
 
 
         }
