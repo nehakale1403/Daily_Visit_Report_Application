@@ -58,10 +58,6 @@ public class TodoListActivity extends AppCompatActivity {
    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
    setContentView(R.layout.activity_todo_list);
 
-   /*toolbar = findViewById(R.id.todotoolbar);
-   setSupportActionBar(toolbar);
-   getSupportActionBar().setTitle("Todo List App");*/
-
 
    recyclerView = findViewById(R.id.todoRecyclerView);
    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -153,10 +149,12 @@ public class TodoListActivity extends AppCompatActivity {
     protected void onStart(){
        super.onStart();
 
-       FirebaseRecyclerOptions<ToDoModel> options = new FirebaseRecyclerOptions.Builder<ToDoModel>().setQuery(reference, ToDoModel.class).build();
+       FirebaseRecyclerOptions<ToDoModel> options = new FirebaseRecyclerOptions.Builder<ToDoModel>()
+               .setQuery(reference, ToDoModel.class)
+               .build();
         FirebaseRecyclerAdapter<ToDoModel, MyviewHolder> adapter = new FirebaseRecyclerAdapter<ToDoModel, MyviewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MyviewHolder holder, final int position, @NonNull final ToDoModel toDoModel) {
+            protected void onBindViewHolder(@NonNull final MyviewHolder holder, final int position, @NonNull final ToDoModel toDoModel) {
                 holder.setDate(toDoModel.getDate());
                 holder.setTask(toDoModel.getTask());
                 holder.setDesc(toDoModel.getDescription());
@@ -164,11 +162,11 @@ public class TodoListActivity extends AppCompatActivity {
                 holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        key = getRef(position).getKey();
+                        key = getRef(holder.getAdapterPosition()).getKey();
                         task = toDoModel.getTask();
                         description = toDoModel.getDescription();
 
-
+                        updateTask();
                     }
                 });
             }
@@ -191,14 +189,16 @@ public class TodoListActivity extends AppCompatActivity {
 
        }
        public  void setTask(String task){
-           TextView tastTextView = mView.findViewById(R.id.taskTv);
-           tastTextView.setText(task);
+           TextView taskTextView = mView.findViewById(R.id.taskTv);
+           taskTextView.setText(task);
        }
        public void setDesc(String desc){
            TextView descTextview = mView.findViewById(R.id.descriptionTv);
+           descTextview.setText(desc);
        }
        public void setDate(String date){
            TextView dateTextView = mView.findViewById(R.id.dateTv);
+           dateTextView.setText(date);
        }
    }
         private void updateTask(){
