@@ -14,12 +14,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
+
 import com.gsix.dvr_application.ExpensesAndBillsActivity;
 import com.gsix.dvr_application.Model.Expense;
 import com.gsix.dvr_application.R;
-import com.squareup.picasso.Picasso;
+//import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -60,7 +59,7 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         holder.timestamp.setText(formattedDate);
 
         String imageurl = expense.getImage();
-        Picasso.get().load(imageurl).into(holder.image);
+       // Picasso.get().load(imageurl).into(holder.image);
 
 
     }

@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/topp_card"
+            android:id="@+id/topp_card_mycheckins"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
@@ -143,16 +143,32 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/pinglocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#3D4EB6"
-                android:layout_gravity="center_horizontal"
                 android:padding="10dp"
+                android:layout_marginLeft="15dp"
                 android:textColor="#ffff"
-                android:layout_margin="20dp"
                 android:drawableStart="@drawable/locationimg"
                 android:text="@string/ping_for_location"/>
+
+            <ImageView
+                android:id="@+id/checkboxgreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/checkbox"
+                android:visibility="invisible"
+                android:layout_gravity="center_vertical"
+                android:contentDescription="@string/todo1" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"

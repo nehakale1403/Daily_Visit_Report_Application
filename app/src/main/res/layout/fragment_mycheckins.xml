@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/topp_card"
+            android:id="@+id/topp_card_mycheckins"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
@@ -30,33 +30,26 @@
                 tools:layout_editor_absoluteY="16dp">
 
                 <TextView
+                    android:id="@+id/total_checkins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="@string/customer_name"
+                    android:text="Total Checkins:"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:padding="5dp"
-                    android:text="@string/visit_purpose"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold"/>
+
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
 
-        <ListView
-            android:id="@+id/id_list_view_expenses"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mycheckin_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/top_card">
-        </ListView>
+            android:layout_height="match_parent"
+            android:layout_below="@id/topp_card_mycheckins" />
     </RelativeLayout>
 
 
