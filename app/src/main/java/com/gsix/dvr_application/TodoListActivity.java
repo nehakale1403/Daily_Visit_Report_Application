@@ -19,8 +19,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -153,15 +151,15 @@ public class TodoListActivity extends AppCompatActivity {
     protected void onStart(){
        super.onStart();
 
-       FirebaseRecyclerOptions<ToDoModel> options = new FirebaseRecyclerOptions.Builder<ToDoModel>().setQuery(reference, ToDoModel.class).build();
-        FirebaseRecyclerAdapter<ToDoModel, MyviewHolder> adapter = new FirebaseRecyclerAdapter<ToDoModel, MyviewHolder>(options) {
+       //FirebaseRecyclerOptions<ToDoModel> options = new FirebaseRecyclerOptions.Builder<ToDoModel>().setQuery(reference, ToDoModel.class).build();
+        //FirebaseRecyclerAdapter<ToDoModel, MyviewHolder> adapter = new FirebaseRecyclerAdapter<ToDoModel, MyviewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyviewHolder holder, final int position, @NonNull final ToDoModel toDoModel) {
-                holder.setDate(toDoModel.getDate());
-                holder.setTask(toDoModel.getTask());
-                holder.setDesc(toDoModel.getDescription());
+              //  holder.setDate(toDoModel.getDate());
+              //  holder.setTask(toDoModel.getTask());
+              //  holder.setDesc(toDoModel.getDescription());
 
-                holder.mView.setOnClickListener(new View.OnClickListener() {
+              //  holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         key = getRef(position).getKey();
