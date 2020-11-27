@@ -28,7 +28,6 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
-    private StorageReference mStorageRef = FirebaseStorage.getInstance().getReference();
     private double total_expenditure=0;
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
@@ -64,11 +63,11 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         Picasso.get().load(imageurl).into(holder.image);
 
     }
+
+//    public double getTotalExpenditure(String amt){
 //
-//    public double getTotalExpenditure(){
-//
-//        total_expenditure+= Integer.parseInt();
-//
+//        total_expenditure+= Integer.parseInt(amt);
+//        Log.d("total amount: ", Double.toString(total_expenditure));
 //        return total_expenditure;
 //
 //    }
