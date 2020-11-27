@@ -3,6 +3,7 @@ package com.gsix.dvr_application.Adapter;
 import android.content.Context;
 import android.media.Image;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
+    private double total_expenditure=0;
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
         this.expenseList  = expenseList;
@@ -60,7 +62,22 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         String imageurl = expense.getImage();
         Picasso.get().load(imageurl).into(holder.image);
 
+
     }
+//
+//    public double getTotalExpenditure(){
+//
+//        total_expenditure+= Integer.parseInt();
+//
+//        return total_expenditure;
+//
+//    }
+//
+//    public int getTotalItemsCount(){
+//
+//        return 0;
+//
+//    }
 
     @Override
     public int getItemCount() {
