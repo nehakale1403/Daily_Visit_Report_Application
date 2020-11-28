@@ -30,6 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Task"
+                android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -44,7 +45,6 @@
             android:layout_height="wrap_content"
             android:hint="Task.."
             android:textColor="#000"
-            android:textColorHint="#000"
             android:textStyle="bold"
             android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -63,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Description"
+                android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_margin="10dp"/>
         </RelativeLayout>
@@ -81,7 +82,7 @@
                 android:layout_marginEnd="10dp"
                 android:hint="Description.."
                 android:textColor="#000"
-                android:textColorHint="#000"
+
                 android:textStyle="bold" />
         </RelativeLayout>
     </LinearLayout>

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,9 @@ public class AddExpenseActivity extends AppCompatActivity {
     private ProgressDialog progressDlg;
     private Uri imageUri;
     private static final int GALLERY_CODE = 1;
+
+    public static double total_expenditure=0.0;
+    public static String total_exp_str="0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +142,9 @@ public class AddExpenseActivity extends AppCompatActivity {
                                 dataToSave.put("timestamp", String.valueOf(java.lang.System.currentTimeMillis()));
 
                                 newPost.setValue(dataToSave);
+
+//                                total_expenditure += Double.valueOf(amountVal);
+//                                total_exp_str= String.valueOf(total_expenditure);
 
                             }
                         });

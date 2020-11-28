@@ -48,7 +48,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Name"
+        android:text="Name"
         android:textStyle="bold"
         android:textColor="@android:color/white"
         android:textSize="20dp"
@@ -66,6 +66,8 @@
 
 </LinearLayout>
 
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height=".5dp"
@@ -74,47 +76,6 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"/>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="25dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center_vertical">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_person_profile"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Last Name"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:textSize="20dp"
-            android:layout_marginLeft="5dp"/>
-
-        <TextView
-            android:id="@+id/profilelastname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:textColor="@android:color/white"
-            android:textSize="18dp" />
-
-
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height=".5dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -280,5 +241,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"/>
+
 
 </LinearLayout>

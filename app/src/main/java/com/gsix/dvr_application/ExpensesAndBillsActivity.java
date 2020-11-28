@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,16 +20,18 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.gsix.dvr_application.Adapter.ExpenseRecyclerAdapter;
 import com.gsix.dvr_application.Model.Expense;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
 public class ExpensesAndBillsActivity extends AppCompatActivity {
 
-    private DatabaseReference mDatabaseReference;
+    private DatabaseReference mDatabaseReference, databaseReferenceAmount;
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -37,8 +40,11 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
     private TextView total_expenditure, total_count;
     private RecyclerView recyclerView;
     private ExpenseRecyclerAdapter expenseRecyclerAdapter;
+    private AddExpenseActivity addExpenseActivity;
     private List<Expense> expenseList;
     private FloatingActionButton add_exp_btn;
+    private Double total_exp = 0.0;
+    private int total_cnt=0;
 
 
 
@@ -76,18 +82,28 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
             }
         });
 
-        refreshData();
+        mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                for (DataSnapshot ds: snapshot.getChildren()){
+
+                    String amt = ds.child("amount").getValue(String.class);
+                    total_exp = total_exp + Double.valueOf(amt);
+                    total_expenditure.setText("Total Expenditure: "+String.valueOf(total_exp));
+
+                    total_cnt+=1;
+                    total_count.setText("Total Count: "+ String.valueOf(total_cnt));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
-
-    private void refreshData(){
-
-//        total_expenditure.setText("Total Expenditure: " + expenseRecyclerAdapter.getTotalExpenditure()));
-//        total_count.setText("Total Count: " + );
-
-    }
-
 
     @Override
     protected void onStart() {
@@ -99,6 +115,8 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
                 Expense expense = snapshot.getValue(Expense.class);
                 expenseList.add(expense);
+
+                Collections.reverse(expenseList);
                 expenseRecyclerAdapter.notifyDataSetChanged();
 
             }
