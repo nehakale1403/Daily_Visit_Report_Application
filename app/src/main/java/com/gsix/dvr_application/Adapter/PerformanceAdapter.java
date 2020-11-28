@@ -48,7 +48,6 @@ public class PerformanceAdapter extends RecyclerView.Adapter<PerformanceAdapter.
 
         holder.empname.setText(checkin.getName());
         holder.empcheckin.setText(checkin.getTotalcheckin());
-        holder.srno.setText("1");
 
     }
 
@@ -59,11 +58,10 @@ public class PerformanceAdapter extends RecyclerView.Adapter<PerformanceAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView srno,empname,empcheckin;
+        TextView empname,empcheckin;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            srno=(TextView)itemView.findViewById(R.id.srno);
             empname=(TextView)itemView.findViewById(R.id.emp_name);
             empcheckin=(TextView)itemView.findViewById(R.id.emp_checkin);
         }

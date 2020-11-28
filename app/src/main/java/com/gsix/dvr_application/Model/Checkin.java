@@ -25,5 +25,6 @@ public class Checkin {
     public void setTotalcheckin(String totalcheckin) {
         this.totalcheckin = totalcheckin;
     }
+
 }
 
