@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddEmployeeActivity extends AppCompatActivity {
-    private EditText empemail, emppassword, empconfpassword;
+    private EditText empemail, emppassword, empconfpassword,empname;
     private Button addemployee;
     FirebaseAuth mAuth;
     String CompUserId;
@@ -35,6 +35,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
         empemail=(EditText)findViewById(R.id.employeeemailregister);
         emppassword=(EditText)findViewById(R.id.employeepwdregister);
         empconfpassword=(EditText)findViewById(R.id.employeeconfpwdregister);
+        empname=(EditText)findViewById(R.id.employenameregister);
         addemployee=(Button)findViewById(R.id.buttonaddemployee);
         mAuth=FirebaseAuth.getInstance();
         CompUserId=getIntent().getExtras().get("CompUserId").toString();
@@ -55,6 +56,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
         final String email = empemail.getText().toString();
         final String password = emppassword.getText().toString();
         final String confpassword = empconfpassword.getText().toString();
+        final String employeename=empname.getText().toString();
 
         if(email.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter the email address.", Toast.LENGTH_SHORT).show();
@@ -82,6 +84,10 @@ public class AddEmployeeActivity extends AppCompatActivity {
                                             if (task.isSuccessful()) {
                                                 String currentuserid=mAuth.getCurrentUser().getUid();
                                                 Rootreference.child("Employees").child(currentuserid).child("details").child("email").setValue(email);
+                                                Rootreference.child("totalcheck").child(currentuserid).child("name").setValue(employeename);
+                                                Rootreference.child("totalcheck").child(currentuserid).child("totalcheckin").setValue("0");
+                                                Rootreference.child("totalcheck").child(currentuserid).child("value").setValue("10000");
+                                                Rootreference.child("Employees").child(currentuserid).child("details").child("name").setValue(employeename);
                                                 Rootreference2.child("users").child(currentuserid).child("type").setValue("employee");
                                                 Rootreference2.child("users").child(currentuserid).child("CompanyId").setValue(CompUserId);
                                                 Toast.makeText(getApplicationContext(),"Account created successfully",Toast.LENGTH_SHORT).show();

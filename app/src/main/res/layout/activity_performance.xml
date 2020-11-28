@@ -44,23 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_below="@+id/recyclerprogress"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/srno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rank"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:fontFamily="serif"
-            android:textColor="#ffff"
-            />
 
 
         <TextView
@@ -70,8 +55,7 @@
             android:layout_toLeftOf="@+id/emp_checkin"
             android:textStyle="bold"
             android:text="Name"
-            android:layout_toRightOf="@id/srno"
-            android:textAlignment="center"
+            android:paddingLeft="30dp"
             android:textSize="18sp"
             android:textColor="#ffff"
             />
