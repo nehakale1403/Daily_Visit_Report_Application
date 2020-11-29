@@ -28,6 +28,7 @@ import com.gsix.dvr_application.Model.Mycheckins;
 import com.gsix.dvr_application.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MyCheckinsFragment extends Fragment {
@@ -42,6 +43,8 @@ public class MyCheckinsFragment extends Fragment {
     private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+
+    private String hashmap;
 
 
 
@@ -74,8 +77,11 @@ public class MyCheckinsFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+
                 Mycheckins mycheckins = snapshot.getValue(Mycheckins.class);
                 mycheckinsList.add(mycheckins);
+
+                Collections.reverse(mycheckinsList);
                 myCheckinsAdapter.notifyDataSetChanged();
 
 
