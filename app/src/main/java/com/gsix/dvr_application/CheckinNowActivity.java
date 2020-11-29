@@ -194,9 +194,13 @@ public class CheckinNowActivity extends AppCompatActivity {
         HashMap<String, Object> productMap = new HashMap<>();
         productMap.put("date", saveCurrentDate);
         productMap.put("time", saveCurrentTime);
+
         productMap.put("CustName", CustomerName);
         productMap.put("CustType", custtypestr);
         productMap.put("VisitPur", visitpurposestr);
+        productMap.put("customerName",CustomerName );
+        productMap.put("customerType", custtypestr);
+        productMap.put("visitpurpose", visitpurposestr);
         productMap.put("VisitDetail", VisitDetail);
         productMap.put("longitude", tvLongitude);
         productMap.put("latitude", tvLatitude);
