@@ -28,7 +28,7 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
-    private double total_expenditure=0;
+
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
         this.expenseList  = expenseList;
@@ -64,19 +64,6 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
 
     }
 
-//    public double getTotalExpenditure(String amt){
-//
-//        total_expenditure+= Integer.parseInt(amt);
-//        Log.d("total amount: ", Double.toString(total_expenditure));
-//        return total_expenditure;
-//
-//    }
-//
-//    public int getTotalItemsCount(){
-//
-//        return 0;
-//
-//    }
 
     @Override
     public int getItemCount() {

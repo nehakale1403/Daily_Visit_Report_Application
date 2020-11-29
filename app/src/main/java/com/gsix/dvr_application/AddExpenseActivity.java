@@ -47,8 +47,7 @@ public class AddExpenseActivity extends AppCompatActivity {
     private Uri imageUri;
     private static final int GALLERY_CODE = 1;
 
-    public static double total_expenditure=0.0;
-    public static String total_exp_str="0";
+    private String userid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +60,9 @@ public class AddExpenseActivity extends AppCompatActivity {
         mUser = mAuth.getCurrentUser();
         mStorage = FirebaseStorage.getInstance().getReference();
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Expense");
+        userid = mUser.getUid();
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Expense").child(userid);
 
         billImage = (ImageButton) findViewById(R.id.add_image_btn_id);
         expenseTitle = (EditText) findViewById(R.id.id_expense_title);

@@ -65,6 +65,7 @@ public class CompanyLogin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(getApplicationContext(), CompanyRegister.class);
                 startActivity(intent);
+                finish();
             }
         });
         ButtonLogin.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +113,7 @@ public class CompanyLogin extends AppCompatActivity {
                                                             Intent intent = new Intent(getApplicationContext(), CompanyDashboard.class);
                                                             intent.putExtra("CompUserId",Currentuserid);
                                                             startActivity(intent);
+                                                            finish();
                                                             loadingbar.dismiss();
                                                         }
                                                         else{

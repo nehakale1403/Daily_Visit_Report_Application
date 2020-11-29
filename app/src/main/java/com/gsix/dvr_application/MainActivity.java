@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
     }
 
     @Override
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }else if (id == R.id.nav_mycheckins){
 
         }else if (id == R.id.nav_expenses){
+
 
         }else if(id == R.id.nav_profile){
 
