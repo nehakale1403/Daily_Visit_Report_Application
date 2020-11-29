@@ -110,6 +110,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
                                                 Intent intent=new Intent(getApplicationContext(), CompanyDashboard.class);
                                                 intent.putExtra("CompUserId",CompUserId);
                                                 startActivity(intent);
+                                                finish();
                                                 loadingbar.dismiss();
                                             } else {
                                                 String message = task.getException().toString();
