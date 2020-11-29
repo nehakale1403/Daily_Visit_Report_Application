@@ -3,6 +3,7 @@ package com.gsix.dvr_application.Adapter;
 import android.content.Context;
 import android.media.Image;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.gsix.dvr_application.ExpensesAndBillsActivity;
 import com.gsix.dvr_application.Model.Expense;
 import com.gsix.dvr_application.R;
-//import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -26,6 +28,7 @@ import java.util.List;
 public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecyclerAdapter.ViewHolder> {
 
     private List<Expense> expenseList;
+    private double total_expenditure=0;
 
     public ExpenseRecyclerAdapter(ExpensesAndBillsActivity expensesAndBillsActivity, List<Expense> expenseList){
         this.expenseList  = expenseList;
@@ -57,9 +60,23 @@ public class ExpenseRecyclerAdapter extends RecyclerView.Adapter<ExpenseRecycler
         holder.timestamp.setText(formattedDate);
 
         String imageurl = expense.getImage();
-       // Picasso.get().load(imageurl).into(holder.image);
+        Picasso.get().load(imageurl).into(holder.image);
 
     }
+
+//    public double getTotalExpenditure(String amt){
+//
+//        total_expenditure+= Integer.parseInt(amt);
+//        Log.d("total amount: ", Double.toString(total_expenditure));
+//        return total_expenditure;
+//
+//    }
+//
+//    public int getTotalItemsCount(){
+//
+//        return 0;
+//
+//    }
 
     @Override
     public int getItemCount() {

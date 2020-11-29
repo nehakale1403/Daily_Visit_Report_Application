@@ -23,6 +23,7 @@ import com.gsix.dvr_application.Adapter.ExpenseRecyclerAdapter;
 import com.gsix.dvr_application.Model.Expense;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -37,6 +38,7 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
     private TextView total_expenditure, total_count;
     private RecyclerView recyclerView;
     private ExpenseRecyclerAdapter expenseRecyclerAdapter;
+    private AddExpenseActivity addExpenseActivity;
     private List<Expense> expenseList;
     private FloatingActionButton add_exp_btn;
 
@@ -61,7 +63,6 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
         expenseList = new ArrayList<>();
 
-
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         expenseRecyclerAdapter = new ExpenseRecyclerAdapter(ExpensesAndBillsActivity.this,
@@ -77,14 +78,20 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
             }
         });
 
-        refreshData();
-    }
+        if (addExpenseActivity.total_exp_str != null){
+            refreshData(addExpenseActivity.total_exp_str);
+        }
 
-    private void refreshData() {
-
-        
 
     }
+
+    private void refreshData(String total_exp){
+
+        total_expenditure.setText("Total Expenditure: " + total_exp);
+//        total_count.setText("Total Count: " + );
+
+    }
+
 
     @Override
     protected void onStart() {
@@ -96,6 +103,8 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
                 Expense expense = snapshot.getValue(Expense.class);
                 expenseList.add(expense);
+
+                Collections.reverse(expenseList);
                 expenseRecyclerAdapter.notifyDataSetChanged();
 
             }

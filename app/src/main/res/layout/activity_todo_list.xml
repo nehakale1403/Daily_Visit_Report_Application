@@ -8,14 +8,25 @@
     tools:context=".TodoListActivity"
     android:background="@color/colorGray">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/todotoolbar"
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/todotoolbar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"-->
+<!--        app:popupTheme="@style/Theme.AppCompat.Light"-->
+<!--        />-->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="ToDo List"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        android:textColor="@color/colorYellow"/>
 
-        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
-        app:popupTheme="@style/Theme.AppCompat.Light"
-        />
+
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

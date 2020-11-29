@@ -54,13 +54,13 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView Customername;
         public TextView visitpurpose;
-        public TextView customertype;
+//        public TextView customertype;
 
         public ViewHolder(@NonNull View View) {
             super(View);
             Customername = (TextView) View.findViewById(R.id.customerNID);
             visitpurpose = (TextView) View.findViewById(R.id.visitID);
-            customertype=(TextView) View.findViewById(R.id.customer_type);
+//            customertype=(TextView) View.findViewById(R.id.customer_type);
 
 
         }
