@@ -48,6 +48,7 @@ public class PerformanceAdapter extends RecyclerView.Adapter<PerformanceAdapter.
 
         holder.empname.setText(checkin.getName());
         holder.empcheckin.setText(checkin.getTotalcheckin());
+        holder.ranking.setText(String.valueOf(position+1));
 
     }
 
@@ -58,12 +59,13 @@ public class PerformanceAdapter extends RecyclerView.Adapter<PerformanceAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView empname,empcheckin;
+        TextView empname,empcheckin,ranking;
 
         public ViewHolder(@NonNull View view) {
             super(view);
             empname=(TextView)itemView.findViewById(R.id.emp_name);
             empcheckin=(TextView)itemView.findViewById(R.id.emp_checkin);
+            ranking=(TextView)itemView.findViewById(R.id.ranking1);
         }
     }
 }

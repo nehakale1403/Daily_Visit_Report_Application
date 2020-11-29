@@ -49,13 +49,26 @@
 
 
         <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ranking"
+            android:text="Rank"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="#ffff"
+            android:textSize="18sp"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
             android:id="@+id/emp_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/emp_checkin"
             android:textStyle="bold"
             android:text="Name"
-            android:paddingLeft="30dp"
+            android:gravity="center_horizontal"
+            android:layout_toRightOf="@+id/ranking"
+            android:layout_marginTop="2dp"
             android:textSize="18sp"
             android:textColor="#ffff"
             />
