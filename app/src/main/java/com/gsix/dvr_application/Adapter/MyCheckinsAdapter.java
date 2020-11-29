@@ -1,5 +1,6 @@
 package com.gsix.dvr_application.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +38,9 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
 
         Mycheckins mycheckins=Mycheckinslist.get(position);
 
-        holder.Customername.setText(mycheckins.getCustomerName());
-        holder.visitpurpose.setText(mycheckins.getVisitpurpose());
+        holder.Customername.setText("Customer Name: "+mycheckins.getCustomerName());
+        holder.visitpurpose.setText("Visit Purpose: "+mycheckins.getvisitpurpose());
+
         //DateFormat dateFormat = DateFormat.getDateInstance();
         //String formattedDate = dateFormat.format(new Date(Long.valueOf(Mycheckins.getTimestamp())).getTime());
       //  holder.timestamp.setText(formattedDate);
