@@ -1,5 +1,6 @@
 package com.gsix.dvr_application.Adapter;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import java.util.List;
 
 public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.ViewHolder> {
 
-    private List<Mycheckins> Mycheckinslist;
+    private List<Mycheckins> mycheckinslist;
 
 
     public MyCheckinsAdapter(MyCheckinsFragment myCheckinsFragment, List<Mycheckins> mycheckinslist) {
 
-       this.Mycheckinslist = mycheckinslist;
+       this.mycheckinslist = mycheckinslist;
     }
 
     @NonNull
@@ -36,10 +37,10 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull MyCheckinsAdapter.ViewHolder holder, int position) {
 
-        Mycheckins mycheckins=Mycheckinslist.get(position);
+        Mycheckins mycheckins=mycheckinslist.get(position);
 
         holder.Customername.setText("Customer Name: "+mycheckins.getCustomerName());
-        holder.visitpurpose.setText("Visit Purpose: "+mycheckins.getvisitpurpose());
+        holder.visitpurpose.setText("Visit Purpose: "+mycheckins.getVisitPurpose());
 
         //DateFormat dateFormat = DateFormat.getDateInstance();
         //String formattedDate = dateFormat.format(new Date(Long.valueOf(Mycheckins.getTimestamp())).getTime());
@@ -50,13 +51,12 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return Mycheckinslist.size();
+        return mycheckinslist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView Customername;
         public TextView visitpurpose;
-        public TextView customertype;
 
         public ViewHolder(@NonNull View View) {
             super(View);

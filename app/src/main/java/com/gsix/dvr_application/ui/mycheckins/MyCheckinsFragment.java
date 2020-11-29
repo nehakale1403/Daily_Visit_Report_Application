@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyCheckinsFragment extends Fragment {
-
+    private View view;
     private DatabaseReference mDatabaseReference;
     private StorageReference mStorage;
     private RecyclerView recyclerView;
@@ -46,24 +46,23 @@ public class MyCheckinsFragment extends Fragment {
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mycheckins, container, false);
+        view = inflater.inflate(R.layout.fragment_mycheckins, container, false);
+        top_card_mycheckins = (CardView) view.findViewById(R.id.topp_card_mycheckins);
+        recyclerView=(RecyclerView) view.findViewById(R.id.mycheckin_recycler_view);
 
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         mDatabase=FirebaseDatabase.getInstance();
         String userid= mUser.getUid();
         Log.d("UID: ", userid);
-        mDatabaseReference=mDatabase.getReference().child("users").child(userid);
+        mDatabaseReference=mDatabase.getReference().child("users").child(userid).child("checkins");
         mDatabaseReference.keepSynced(true);
+
         mycheckinsList=new ArrayList<>();
-
-
-
-        top_card_mycheckins = (CardView) view.findViewById(R.id.topp_card_mycheckins);
-        recyclerView=(RecyclerView) view.findViewById(R.id.mycheckin_recycler_view);
-        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.setHasFixedSize(true);
         myCheckinsAdapter =new MyCheckinsAdapter(MyCheckinsFragment.this,mycheckinsList);
+        recyclerView.setAdapter(myCheckinsAdapter);
 
        return view;
     }

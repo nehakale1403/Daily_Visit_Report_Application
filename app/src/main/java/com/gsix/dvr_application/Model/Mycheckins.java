@@ -1,44 +1,28 @@
 package com.gsix.dvr_application.Model;
 
 public class Mycheckins {
- public String customerName;
- public String Visitpurpose;
- public String timestamp;
+ public String customerName, visitPurpose;
 
-    public Mycheckins(String customerName, String visitpurpose, String timestamp) {
+    public Mycheckins(String customerName, String visitPurpose) {
         this.customerName = customerName;
-       this.Visitpurpose = visitpurpose;
-        this.timestamp = timestamp;
+        this.visitPurpose = visitPurpose;
     }
+
+    public Mycheckins(){}
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerNmae) {
+    public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
 
-    public String getTimestamp() {
-        return timestamp;
+    public String getVisitPurpose() {
+        return visitPurpose;
     }
 
-    public void setTimestamp(String timestamp)
-
-    {
-        this.timestamp = timestamp;
-    }
-
-    public String getVisitpurpose() {
-        return Visitpurpose;
-    }
-
-    public void setVisitpurpose(String visitpurpose) {
-        Visitpurpose = visitpurpose;
-    }
-
-    public Mycheckins()
-    {
-
+    public void setVisitPurpose(String visitPurpose) {
+        this.visitPurpose = visitPurpose;
     }
 }

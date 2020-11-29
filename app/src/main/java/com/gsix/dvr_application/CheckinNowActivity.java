@@ -194,14 +194,10 @@ public class CheckinNowActivity extends AppCompatActivity {
         HashMap<String, Object> productMap = new HashMap<>();
         productMap.put("date", saveCurrentDate);
         productMap.put("time", saveCurrentTime);
-
-        productMap.put("CustName", CustomerName);
-        productMap.put("CustType", custtypestr);
-        productMap.put("VisitPur", visitpurposestr);
-        productMap.put("customerName",CustomerName );
+        productMap.put("customerName", CustomerName);
         productMap.put("customerType", custtypestr);
-        productMap.put("visitpurpose", visitpurposestr);
-        productMap.put("VisitDetail", VisitDetail);
+        productMap.put("visitPurpose", visitpurposestr);
+        productMap.put("visitDetail", VisitDetail);
         productMap.put("longitude", tvLongitude);
         productMap.put("latitude", tvLatitude);
 
@@ -246,9 +242,6 @@ public class CheckinNowActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        loadingBar.setTitle("Please wait....");
-        loadingBar.setCanceledOnTouchOutside(false);
-        loadingBar.show();
         super.onStart();
         databaseReference.child("users").child(CurrentUserId).addValueEventListener(new ValueEventListener() {
             @Override
@@ -261,7 +254,6 @@ public class CheckinNowActivity extends AppCompatActivity {
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if (snapshot.exists()) {
                                         checkincount = snapshot.child(CurrentUserId).child("totalcheckin").getValue().toString();
-                                        loadingbar.dismiss();
                                     }
 
                                 }
@@ -269,7 +261,6 @@ public class CheckinNowActivity extends AppCompatActivity {
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError error) {
 
-                                    loadingbar.dismiss();
                                 }
                             });
                 }
