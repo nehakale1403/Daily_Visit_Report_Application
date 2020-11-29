@@ -46,6 +46,8 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
     private Double total_exp = 0.0;
     private int total_cnt=0;
 
+    private String userid;
+
 
 
     @Override
@@ -60,9 +62,10 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
+        userid = mUser.getUid();
 
         mDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mDatabase.getReference().child("Expense"); //getting the link of our database
+        mDatabaseReference = mDatabase.getReference().child("Expense").child(userid); //getting the link of our database
         mDatabaseReference.keepSynced(true);
 
         expenseList = new ArrayList<>();
