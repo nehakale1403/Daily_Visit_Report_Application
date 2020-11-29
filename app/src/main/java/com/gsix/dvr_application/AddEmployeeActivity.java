@@ -21,7 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddEmployeeActivity extends AppCompatActivity {
-    private EditText empemail, emppassword, empconfpassword,empname;
+
+    private EditText empemail, emppassword, empconfpassword,empname, empid, empmobile, empaddress;
     private Button addemployee;
     FirebaseAuth mAuth;
     String CompUserId;
@@ -32,10 +33,15 @@ public class AddEmployeeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_employee);
+
+        empname=(EditText)findViewById(R.id.employenameregister);
         empemail=(EditText)findViewById(R.id.employeeemailregister);
+        empid = (EditText) findViewById(R.id.employeeidregister);
+        empmobile = (EditText) findViewById(R.id.employeemobileregister);
+        empaddress = (EditText) findViewById(R.id.employeaddressregister);
         emppassword=(EditText)findViewById(R.id.employeepwdregister);
         empconfpassword=(EditText)findViewById(R.id.employeeconfpwdregister);
-        empname=(EditText)findViewById(R.id.employenameregister);
+
         addemployee=(Button)findViewById(R.id.buttonaddemployee);
         mAuth=FirebaseAuth.getInstance();
         CompUserId=getIntent().getExtras().get("CompUserId").toString();
@@ -53,10 +59,15 @@ public class AddEmployeeActivity extends AppCompatActivity {
     private void addempactivity() {
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         int str_pwd = emppassword.getText().toString().length();
+        final String employeename=empname.getText().toString();
         final String email = empemail.getText().toString();
+        final String mobile = empmobile.getText().toString();
+        final String empID = empid.getText().toString();
+        final String address = empaddress.getText().toString();
+
         final String password = emppassword.getText().toString();
         final String confpassword = empconfpassword.getText().toString();
-        final String employeename=empname.getText().toString();
+
 
         if(email.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please enter the email address.", Toast.LENGTH_SHORT).show();
@@ -83,7 +94,12 @@ public class AddEmployeeActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()) {
                                                 String currentuserid=mAuth.getCurrentUser().getUid();
+                                                Rootreference.child("Employees").child(currentuserid).child("details").child("name").setValue(employeename);
                                                 Rootreference.child("Employees").child(currentuserid).child("details").child("email").setValue(email);
+                                                Rootreference.child("Employees").child(currentuserid).child("details").child("mobile").setValue(mobile);
+                                                Rootreference.child("Employees").child(currentuserid).child("details").child("empID").setValue(empID);
+                                                Rootreference.child("Employees").child(currentuserid).child("details").child("address").setValue(address);
+
                                                 Rootreference.child("totalcheck").child(currentuserid).child("name").setValue(employeename);
                                                 Rootreference.child("totalcheck").child(currentuserid).child("totalcheckin").setValue("0");
                                                 Rootreference.child("totalcheck").child(currentuserid).child("value").setValue("10000");

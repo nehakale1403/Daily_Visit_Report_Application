@@ -2,12 +2,12 @@ package com.gsix.dvr_application.Model;
 
 public class Mycheckins {
  public String customerName;
- public String Visitpurpose;
+ public String visitpurpose;
  public String timestamp;
 
     public Mycheckins(String customerName, String visitpurpose, String timestamp) {
         this.customerName = customerName;
-       this.Visitpurpose = visitpurpose;
+       this.visitpurpose = visitpurpose;
         this.timestamp = timestamp;
     }
 
@@ -29,12 +29,12 @@ public class Mycheckins {
         this.timestamp = timestamp;
     }
 
-    public String getVisitpurpose() {
-        return Visitpurpose;
+    public String getvisitpurpose() {
+        return visitpurpose;
     }
 
     public void setVisitpurpose(String visitpurpose) {
-        Visitpurpose = visitpurpose;
+        visitpurpose = visitpurpose;
     }
 
     public Mycheckins()

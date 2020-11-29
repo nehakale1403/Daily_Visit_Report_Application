@@ -246,9 +246,6 @@ public class CheckinNowActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        loadingBar.setTitle("Please wait....");
-        loadingBar.setCanceledOnTouchOutside(false);
-        loadingBar.show();
         super.onStart();
         databaseReference.child("users").child(CurrentUserId).addValueEventListener(new ValueEventListener() {
             @Override
