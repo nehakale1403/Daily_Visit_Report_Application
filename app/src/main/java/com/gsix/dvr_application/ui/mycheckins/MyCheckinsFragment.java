@@ -1,6 +1,7 @@
 package com.gsix.dvr_application.ui.mycheckins;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.gsix.dvr_application.Adapter.MyCheckinsAdapter;
+import com.gsix.dvr_application.CheckinNowActivity;
 import com.gsix.dvr_application.Model.Mycheckins;
 import com.gsix.dvr_application.R;
 
@@ -49,9 +51,13 @@ public class MyCheckinsFragment extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         mDatabase=FirebaseDatabase.getInstance();
-        mDatabaseReference=mDatabase.getReference().child("Checkins");
+        String userid= mUser.getUid();
+        Log.d("UID: ", userid);
+        mDatabaseReference=mDatabase.getReference().child("users").child(userid);
         mDatabaseReference.keepSynced(true);
         mycheckinsList=new ArrayList<>();
+
+
 
         top_card_mycheckins = (CardView) view.findViewById(R.id.topp_card_mycheckins);
         recyclerView=(RecyclerView) view.findViewById(R.id.mycheckin_recycler_view);
