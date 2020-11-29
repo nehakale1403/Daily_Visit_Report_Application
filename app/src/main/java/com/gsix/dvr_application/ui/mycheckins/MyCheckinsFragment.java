@@ -28,6 +28,7 @@ import com.gsix.dvr_application.Model.Mycheckins;
 import com.gsix.dvr_application.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MyCheckinsFragment extends Fragment {
@@ -43,6 +44,8 @@ public class MyCheckinsFragment extends Fragment {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
 
+    private String hashmap;
+
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class MyCheckinsFragment extends Fragment {
         mDatabase=FirebaseDatabase.getInstance();
         String userid= mUser.getUid();
         Log.d("UID: ", userid);
-        mDatabaseReference=mDatabase.getReference().child("users").child(userid);
+        mDatabaseReference=mDatabase.getReference().child("users").child(userid).child("checkins");
         mDatabaseReference.keepSynced(true);
         mycheckinsList=new ArrayList<>();
 
@@ -64,6 +67,7 @@ public class MyCheckinsFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         myCheckinsAdapter =new MyCheckinsAdapter(MyCheckinsFragment.this,mycheckinsList);
+        recyclerView.setAdapter(myCheckinsAdapter);
 
        return view;
     }
@@ -75,8 +79,11 @@ public class MyCheckinsFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+
                 Mycheckins mycheckins = snapshot.getValue(Mycheckins.class);
                 mycheckinsList.add(mycheckins);
+
+                Collections.reverse(mycheckinsList);
                 myCheckinsAdapter.notifyDataSetChanged();
 
 
