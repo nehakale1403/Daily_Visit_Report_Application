@@ -46,7 +46,6 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
         //String formattedDate = dateFormat.format(new Date(Long.valueOf(Mycheckins.getTimestamp())).getTime());
       //  holder.timestamp.setText(formattedDate);
 
-
     }
 
     @Override
