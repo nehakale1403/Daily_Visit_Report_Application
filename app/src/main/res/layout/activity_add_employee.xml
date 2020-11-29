@@ -44,6 +44,22 @@
                 android:autofillHints="" />
 
             <EditText
+                android:id="@+id/employenameregister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="#11000000"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:textSize="22sp"
+                android:hint="@string/employee_name"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhite"
+                android:drawableStart="@drawable/ic_action_name"
+                android:autofillHints="" />
+
+            <EditText
                 android:id="@+id/employeepwdregister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

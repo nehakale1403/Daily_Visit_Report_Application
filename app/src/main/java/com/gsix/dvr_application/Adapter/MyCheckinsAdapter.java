@@ -56,7 +56,7 @@ public class MyCheckinsAdapter extends RecyclerView.Adapter<MyCheckinsAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView Customername;
         public TextView visitpurpose;
-//        public TextView customertype;
+        public TextView customertype;
 
         public ViewHolder(@NonNull View View) {
             super(View);

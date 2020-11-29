@@ -143,10 +143,8 @@ public class AddExpenseActivity extends AppCompatActivity {
 
                                 newPost.setValue(dataToSave);
 
-                                total_expenditure += Double.valueOf(amountVal);
-                                Toast.makeText(AddExpenseActivity.this, Double.toString(total_expenditure), Toast.LENGTH_LONG).show();
-                                total_exp_str= String.valueOf(total_expenditure);
-                                Log.d("Total exp: ", total_exp_str);
+//                                total_expenditure += Double.valueOf(amountVal);
+//                                total_exp_str= String.valueOf(total_expenditure);
 
                             }
                         });
