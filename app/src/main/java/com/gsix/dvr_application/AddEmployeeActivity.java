@@ -102,7 +102,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
 
                                                 Rootreference.child("totalcheck").child(currentuserid).child("name").setValue(employeename);
                                                 Rootreference.child("totalcheck").child(currentuserid).child("totalcheckin").setValue("0");
-                                                Rootreference.child("totalcheck").child(currentuserid).child("value").setValue("10000");
+                                                Rootreference.child("totalcheck").child(currentuserid).child("value").setValue("9999");
                                                 Rootreference.child("Employees").child(currentuserid).child("details").child("name").setValue(employeename);
                                                 Rootreference2.child("users").child(currentuserid).child("type").setValue("employee");
                                                 Rootreference2.child("users").child(currentuserid).child("CompanyId").setValue(CompUserId);

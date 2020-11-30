@@ -80,13 +80,6 @@ public class CheckinNowActivity extends AppCompatActivity {
         Pinglocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(CheckinNowActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
                 loadingbar.setTitle("Please Wait....");
                 loadingbar.setCanceledOnTouchOutside(false);
                 loadingbar.show();
@@ -208,7 +201,7 @@ public class CheckinNowActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             int checkincnti = Integer.parseInt(checkincount);
                             checkincnti++;
-                            int valuei = 10000 - checkincnti;
+                            int valuei = 9999 - checkincnti;
 
                             HashMap<String, Object> productMap1 = new HashMap<>();
                             productMap1.put("totalcheckin", String.valueOf(checkincnti));
