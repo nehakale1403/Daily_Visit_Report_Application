@@ -43,17 +43,17 @@
             android:id="@+id/compemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:autofillHints=""
             android:background="#11000000"
+            android:drawableStart="@drawable/ic_action_name"
             android:ems="10"
-            android:textSize="22sp"
             android:hint="@string/email_id"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
             android:textColor="@color/colorWhite"
             android:textColorHint="@color/colorWhite"
-            android:drawableStart="@drawable/ic_action_name"
-            tools:ignore="TextFields"
-            android:autofillHints="" />
+            android:textSize="22sp"
+            tools:ignore="TextFields" />
 
         <EditText
             android:id="@+id/comppassword"

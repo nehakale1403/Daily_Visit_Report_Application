@@ -60,10 +60,11 @@
                 <EditText
                     android:id="@+id/editname"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="40dp"
                     android:layout_marginRight="40dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_height="wrap_content"/>
+                    android:inputType="textPersonName" />
 
             </LinearLayout>
 
@@ -148,25 +149,26 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="20dp"
                 android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/pinglocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#3D4EB6"
-                android:padding="10dp"
-                android:layout_marginLeft="15dp"
-                android:textColor="#ffff"
-                android:drawableStart="@drawable/locationimg"
-                android:text="@string/ping_for_location"/>
 
-            <ImageView
-                android:id="@+id/checkboxgreen"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/checkbox"
-                android:visibility="invisible"
-                android:layout_gravity="center_vertical"
-                android:contentDescription="@string/todo1" />
+                <TextView
+                    android:id="@+id/pinglocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:background="#3D4EB6"
+                    android:drawableStart="@drawable/locationimg"
+                    android:padding="10dp"
+                    android:text="@string/ping_for_location"
+                    android:textColor="#ffff" />
+
+                <ImageView
+                    android:id="@+id/checkboxgreen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/todo1"
+                    android:src="@drawable/checkbox"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
@@ -180,11 +182,11 @@
                 <Button
                     android:id="@+id/clearbtn"
                     android:layout_width="wrap_content"
-                    android:text="@string/clear"
+                    android:layout_height="wrap_content"
                     android:background="#C6386C"
+                    android:text="@string/clear"
                     android:textColor="#ffff"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"/>
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/submitbtn"
