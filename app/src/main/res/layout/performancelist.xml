@@ -4,16 +4,27 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="20dp">
 
-
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ranking1"
+        android:text="Rank"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#ffff"
+        android:textSize="18sp"
+        android:layout_marginTop="2dp"/>
 
         <TextView
             android:id="@+id/emp_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/emp_checkin"
+            android:layout_toRightOf="@+id/ranking1"
             android:textStyle="bold"
             android:text="Name"
             android:paddingLeft="30dp"
+            android:gravity="center_horizontal"
             android:textSize="20sp"
             android:textColor="#ffff"
             />
@@ -23,12 +34,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:text="20"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
             android:lines="1"
             android:textAlignment="center"
             android:textSize="18sp"
