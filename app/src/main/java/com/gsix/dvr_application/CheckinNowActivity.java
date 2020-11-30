@@ -80,21 +80,48 @@ public class CheckinNowActivity extends AppCompatActivity {
         Pinglocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingbar.setTitle("Please Wait....");
-                loadingbar.setCanceledOnTouchOutside(false);
-                loadingbar.show();
-                gpsTracker = new GpsTracker(CheckinNowActivity.this);
-                if (gpsTracker.canGetLocation()) {
-                    double latitude = gpsTracker.getLatitude();
-                    double longitude = gpsTracker.getLongitude();
-                    tvLatitude = String.valueOf(latitude);
-                    tvLongitude = String.valueOf(longitude);
-                    checkboxgreen.setVisibility(View.VISIBLE);
-                    locping = false;
-                    loadingbar.dismiss();
-                } else {
-                    loadingbar.dismiss();
-                    gpsTracker.showSettingsAlert();
+                try {
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(CheckinNowActivity.this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+                        loadingbar.setTitle("Please Wait....");
+                        loadingbar.setCanceledOnTouchOutside(false);
+                        loadingbar.show();
+                        gpsTracker = new GpsTracker(CheckinNowActivity.this);
+                        if (gpsTracker.canGetLocation()) {
+                            double latitude = gpsTracker.getLatitude();
+                            double longitude = gpsTracker.getLongitude();
+                            tvLatitude = String.valueOf(latitude);
+                            tvLongitude = String.valueOf(longitude);
+                            checkboxgreen.setVisibility(View.VISIBLE);
+                            locping = false;
+                            loadingbar.dismiss();
+                            Toast.makeText(getApplicationContext(),tvLatitude+"  "+ tvLongitude,Toast.LENGTH_SHORT).show();
+                        } else {
+                            loadingbar.dismiss();
+                            gpsTracker.showSettingsAlert();
+                        }
+                    }
+                    else{
+                        loadingbar.setTitle("Please Wait....");
+                        loadingbar.setCanceledOnTouchOutside(false);
+                        loadingbar.show();
+                        gpsTracker = new GpsTracker(CheckinNowActivity.this);
+                        if (gpsTracker.canGetLocation()) {
+                            double latitude = gpsTracker.getLatitude();
+                            double longitude = gpsTracker.getLongitude();
+                            tvLatitude = String.valueOf(latitude);
+                            tvLongitude = String.valueOf(longitude);
+                            checkboxgreen.setVisibility(View.VISIBLE);
+                            locping = false;
+                            loadingbar.dismiss();
+                            Toast.makeText(getApplicationContext(),tvLatitude+"  "+ tvLongitude,Toast.LENGTH_SHORT).show();
+                        } else {
+                            loadingbar.dismiss();
+                            gpsTracker.showSettingsAlert();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
