@@ -58,12 +58,12 @@
         android:layout_width="281dp"
         android:layout_height="58dp"
         android:layout_marginTop="24dp"
-        android:padding="6dp"
         android:background="#11000000"
         android:drawableStart="@drawable/ic_action_lock"
         android:ems="10"
         android:hint="@string/employee_password"
         android:inputType="textPassword"
+        android:padding="6dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,10 +83,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PasswordID"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.433" />
 
     <TextView
         android:id="@+id/btncompany"
@@ -94,12 +94,25 @@
         android:layout_height="wrap_content"
         android:text="Login/Register as Company"
         android:textColor="#3299CC"
-        tools:ignore="MissingConstraints"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginbutton"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.481"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/remember_id"
+        android:layout_width="147dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/remeber_in"
+        android:textColor="@color/colorWhite"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,5 +53,7 @@
     <string name="todo1">TODO</string>
     <string name="customer_nameID">Cutomer Name</string>
     <string name="employee_name">Name</string>
+    <string name="signedin">Keep SignedIn</string>
+    <string name="remeber_in">Remember Me</string>
 
 </resources>
