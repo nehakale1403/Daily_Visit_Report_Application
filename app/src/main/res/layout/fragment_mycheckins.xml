@@ -30,7 +30,7 @@
                 tools:layout_editor_absoluteY="16dp">
 
                 <TextView
-                    android:id="@+id/total_checkins"
+                    android:id="@+id/total_checkins_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"

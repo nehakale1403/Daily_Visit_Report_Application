@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,6 +21,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.gsix.dvr_application.Adapter.MyCheckinsAdapter;
@@ -27,13 +29,16 @@ import com.gsix.dvr_application.CheckinNowActivity;
 import com.gsix.dvr_application.Model.Mycheckins;
 import com.gsix.dvr_application.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class MyCheckinsFragment extends Fragment {
     private View view;
-    private DatabaseReference mDatabaseReference;
+    private TextView total_checkins;
+    private DatabaseReference mDatabaseReference, total_checkins_ref;
     private StorageReference mStorage;
     private RecyclerView recyclerView;
     private MyCheckinsAdapter myCheckinsAdapter;
@@ -52,20 +57,43 @@ public class MyCheckinsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_mycheckins, container, false);
         top_card_mycheckins = (CardView) view.findViewById(R.id.topp_card_mycheckins);
         recyclerView=(RecyclerView) view.findViewById(R.id.mycheckin_recycler_view);
+        total_checkins= (TextView) view.findViewById(R.id.total_checkins_id);
 
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         mDatabase=FirebaseDatabase.getInstance();
         String userid= mUser.getUid();
-        Log.d("UID: ", userid);
+        String companyid = FirebaseDatabase.getInstance().getReference().child("Company").getRoot().toString();
+
+        Log.d("ref: ", companyid);
+
         mDatabaseReference=mDatabase.getReference().child("users").child(userid).child("checkins");
         mDatabaseReference.keepSynced(true);
+        total_checkins_ref = FirebaseDatabase.getInstance().getReference().child("Company").child(companyid)
+                .child("totalcheck").child(userid);
+
+        Log.d("ref: ", total_checkins_ref.toString());
 
         mycheckinsList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setHasFixedSize(true);
         myCheckinsAdapter =new MyCheckinsAdapter(MyCheckinsFragment.this,mycheckinsList);
         recyclerView.setAdapter(myCheckinsAdapter);
+
+        total_checkins_ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String name = snapshot.child("name").getValue(String.class);
+                total_checkins.setText(name);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
        return view;
     }
