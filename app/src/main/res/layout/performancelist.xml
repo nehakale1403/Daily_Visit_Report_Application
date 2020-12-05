@@ -2,15 +2,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp">
+    android:layout_marginBottom="10dp">
+
+    <View
+        android:id="@+id/linebelow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/colorWhite"/>
 
     <TextView
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:id="@+id/ranking1"
-        android:text="Rank"
         android:gravity="center_horizontal"
         android:textStyle="bold"
+        android:layout_below="@+id/linebelow"
         android:textColor="#ffff"
         android:textSize="18sp"
         android:layout_marginTop="2dp"/>
@@ -22,10 +29,11 @@
             android:layout_toLeftOf="@+id/emp_checkin"
             android:layout_toRightOf="@+id/ranking1"
             android:textStyle="bold"
-            android:text="Name"
             android:paddingLeft="30dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/linebelow"
             android:gravity="center_horizontal"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textColor="#ffff"
             />
 
@@ -36,11 +44,11 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:text="20"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:layout_marginTop="2dp"
             android:gravity="center_horizontal"
+            android:layout_below="@+id/linebelow"
             android:lines="1"
             android:textAlignment="center"
             android:textSize="18sp"
