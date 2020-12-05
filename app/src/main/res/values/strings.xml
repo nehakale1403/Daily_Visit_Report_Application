@@ -55,5 +55,8 @@
     <string name="employee_name">Name</string>
     <string name="signedin">Keep SignedIn</string>
     <string name="remeber_in">Remember Me</string>
+    <string name="employee_list">Employee List</string>
+    <string name="emp_id">Emp ID</string>
+    <string name="sr_no">Sr No.</string>
 
 </resources>

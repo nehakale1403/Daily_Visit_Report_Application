@@ -1,11 +1,12 @@
 package com.gsix.dvr_application.Model;
 
 public class Checkin {
-    public String name,totalcheckin;
+    public String name,totalcheckin,empID;
 
-    public Checkin(String name, String totalcheckin) {
+    public Checkin(String name, String totalcheckin, String empID) {
         this.name = name;
         this.totalcheckin = totalcheckin;
+        this.empID = empID;
     }
 
     public Checkin(){}
@@ -26,5 +27,12 @@ public class Checkin {
         this.totalcheckin = totalcheckin;
     }
 
+    public String getEmpID() {
+        return empID;
+    }
+
+    public void setEmpID(String empID) {
+        this.empID = empID;
+    }
 }
 
