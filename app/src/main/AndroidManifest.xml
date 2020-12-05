@@ -21,13 +21,16 @@
         <activity android:name=".CompanyLogin" />
         <activity android:name=".AddExpenseActivity" />
         <activity android:name=".PerformanceActivity" />
-        <activity android:name=".Login_Page">
+        <activity android:name=".SplashScreen"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Login_Page"/>
+
         <activity android:name=".TodoListActivity" />
         <activity android:name=".ExpensesAndBillsActivity" />
         <activity android:name=".CheckinNowActivity" />
