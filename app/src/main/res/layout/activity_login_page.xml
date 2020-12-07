@@ -28,7 +28,7 @@
         android:layout_below="@+id/img" />
 
     <EditText
-        android:id="@+id/employeeID"
+        android:id="@+id/emailID"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -60,7 +60,7 @@
         android:layout_marginBottom="5dp"
         android:textColor="@color/colorWhite"
         android:textColorHint="#808080"
-        android:layout_below="@+id/employeeID" />
+        android:layout_below="@+id/emailID" />
 
     <Button
         android:id="@+id/loginbutton"
