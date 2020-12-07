@@ -33,7 +33,7 @@ public class Login_Page extends AppCompatActivity {
     private TextView btncompany;
     EditText email;
     EditText pass;
-    CheckBox remember;
+//    CheckBox remember;
     Button login;
     FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -49,7 +49,7 @@ public class Login_Page extends AppCompatActivity {
         email = (EditText) findViewById(R.id.employeeID);
         pass = (EditText) findViewById(R.id.PasswordID);
         login = (Button) findViewById(R.id.loginbutton);
-        remember=(CheckBox) findViewById(R.id.remember_id);
+        //remember=(CheckBox) findViewById(R.id.remember_id);
         btncompany = (TextView) findViewById(R.id.btncompany);
         rootref = FirebaseDatabase.getInstance().getReference();
         build = new AlertDialog.Builder(this);
@@ -76,27 +76,27 @@ public class Login_Page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","true");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"checked",Toast.LENGTH_SHORT).show();
-                }
-                else if(!compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","false");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"unchecked",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked())
+//                {
+//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remeber","true");
+//                    editor.apply();
+//                    Toast.makeText(Login_Page.this,"checked",Toast.LENGTH_SHORT).show();
+//                }
+//                else if(!compoundButton.isChecked())
+//                {
+//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remeber","false");
+//                    editor.apply();
+//                    Toast.makeText(Login_Page.this,"unchecked",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
