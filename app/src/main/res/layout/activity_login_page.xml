@@ -14,6 +14,7 @@
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/dvr1" />
 
+
     <TextView
         android:id="@+id/employeelogin"
         android:layout_width="wrap_content"
@@ -97,5 +98,6 @@
         android:text="Login/Register as Company"
         android:textColor="#3299CC" />
 
-
 </RelativeLayout>
+
+
