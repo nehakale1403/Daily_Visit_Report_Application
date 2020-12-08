@@ -235,7 +235,7 @@ public class CheckinNowActivity extends AppCompatActivity {
                                 checkinPercent=100;
                             }
                             else{
-                                checkinPercent=checkincnti/5;
+                                checkinPercent=checkincnti*5;
                             }
 
                             HashMap<String, Object> productMap1 = new HashMap<>();

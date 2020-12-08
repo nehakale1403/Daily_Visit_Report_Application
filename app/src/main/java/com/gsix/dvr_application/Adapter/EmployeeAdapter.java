@@ -1,5 +1,6 @@
 package com.gsix.dvr_application.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +46,7 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
 
         holder.empname.setText(checkin.getName());
         holder.empcheckin.setText(checkin.getEmpID());
-        holder.ranking.setText(String.valueOf(position+1));
+        holder.ranking.setText(String.valueOf(position + 1));
     }
 
     @Override
