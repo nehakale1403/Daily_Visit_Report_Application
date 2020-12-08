@@ -62,23 +62,4 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-    public void onNavigationItemSelected(MenuItem item){
-
-        int id = item.getItemId();
-
-        if (id == R.id.nav_dashboard){
-            Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show();
-
-        }else if (id == R.id.nav_mycheckins){
-
-        }else if (id == R.id.nav_expenses){
-
-
-        }else if(id == R.id.nav_profile){
-
-        }else if (id == R.id.nav_logout){
-
-        }
-    }
 }

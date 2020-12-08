@@ -6,8 +6,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,14 +24,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.gsix.dvr_application.ui.dashboard.DashboardFragment;
 
 
 public class Login_Page extends AppCompatActivity {
     private TextView btncompany;
     EditText email;
     EditText pass;
-    CheckBox remember;
+//    CheckBox remember;
     Button login;
     FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -46,10 +43,10 @@ public class Login_Page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
         getSupportActionBar().hide();
-        email = (EditText) findViewById(R.id.employeeID);
+        email = (EditText) findViewById(R.id.emailID);
         pass = (EditText) findViewById(R.id.PasswordID);
         login = (Button) findViewById(R.id.loginbutton);
-        remember=(CheckBox) findViewById(R.id.remember_id);
+        //remember=(CheckBox) findViewById(R.id.remember_id);
         btncompany = (TextView) findViewById(R.id.btncompany);
         rootref = FirebaseDatabase.getInstance().getReference();
         build = new AlertDialog.Builder(this);
@@ -76,27 +73,27 @@ public class Login_Page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","true");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"checked",Toast.LENGTH_SHORT).show();
-                }
-                else if(!compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","false");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"unchecked",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if(compoundButton.isChecked())
+//                {
+//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remeber","true");
+//                    editor.apply();
+//                    Toast.makeText(Login_Page.this,"checked",Toast.LENGTH_SHORT).show();
+//                }
+//                else if(!compoundButton.isChecked())
+//                {
+//                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
+//                    SharedPreferences.Editor editor = preferences.edit();
+//                    editor.putString("remeber","false");
+//                    editor.apply();
+//                    Toast.makeText(Login_Page.this,"unchecked",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
