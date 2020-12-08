@@ -38,17 +38,16 @@ import java.util.List;
 public class MyCheckinsFragment extends Fragment {
     private View view;
     private TextView total_checkins;
-    private DatabaseReference mDatabaseReference, total_checkins_ref;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mDatabaseReference, total_checkins_ref,userref;
     private StorageReference mStorage;
     private RecyclerView recyclerView;
     private MyCheckinsAdapter myCheckinsAdapter;
     private List<Mycheckins> mycheckinsList;
     private CardView top_card_mycheckins;
-
-    private FirebaseDatabase mDatabase;
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
-
+    private String userid,companyid;
     private String hashmap;
 
 
@@ -62,38 +61,18 @@ public class MyCheckinsFragment extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         mDatabase=FirebaseDatabase.getInstance();
-        String userid= mUser.getUid();
-        String companyid = FirebaseDatabase.getInstance().getReference().child("Company").getRoot().toString();
-
-        Log.d("ref: ", companyid);
+        userid= mUser.getUid();
+        userref=mDatabase.getReference().child("users").child(userid);
 
         mDatabaseReference=mDatabase.getReference().child("users").child(userid).child("checkins");
+        total_checkins_ref=mDatabase.getReference();
         mDatabaseReference.keepSynced(true);
-        total_checkins_ref = FirebaseDatabase.getInstance().getReference().child("Company").child(companyid)
-                .child("totalcheck").child(userid);
-
-        Log.d("ref: ", total_checkins_ref.toString());
 
         mycheckinsList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.setHasFixedSize(true);
         myCheckinsAdapter =new MyCheckinsAdapter(MyCheckinsFragment.this,mycheckinsList);
         recyclerView.setAdapter(myCheckinsAdapter);
-
-        total_checkins_ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String name = snapshot.child("name").getValue(String.class);
-                total_checkins.setText(name);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
        return view;
     }
@@ -104,13 +83,13 @@ public class MyCheckinsFragment extends Fragment {
         mDatabaseReference.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                if(snapshot.exists()) {
+                    Mycheckins mycheckins = snapshot.getValue(Mycheckins.class);
+                    mycheckinsList.add(mycheckins);
 
-
-                Mycheckins mycheckins = snapshot.getValue(Mycheckins.class);
-                mycheckinsList.add(mycheckins);
-
-                Collections.reverse(mycheckinsList);
-                myCheckinsAdapter.notifyDataSetChanged();
+                    Collections.reverse(mycheckinsList);
+                    myCheckinsAdapter.notifyDataSetChanged();
+                }
 
 
             }
@@ -128,6 +107,35 @@ public class MyCheckinsFragment extends Fragment {
             @Override
             public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        userref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    companyid=snapshot.child("CompanyId").getValue().toString();
+                    total_checkins_ref.child("Company").child(companyid)
+                            .child("totalcheck").child(userid).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.exists()) {
+                                String name = snapshot.child("totalcheckin").getValue().toString();
+                                total_checkins.setText("Total checkin: "+name);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
             }
 
             @Override
