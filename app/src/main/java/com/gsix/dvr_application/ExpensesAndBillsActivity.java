@@ -59,6 +59,7 @@ public class ExpensesAndBillsActivity extends AppCompatActivity {
         total_expenditure = (TextView) findViewById(R.id.id_total_expenses);
         total_count = (TextView) findViewById(R.id.id_total_count);
         add_exp_btn = (FloatingActionButton) findViewById(R.id.id_fab_expenses);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();

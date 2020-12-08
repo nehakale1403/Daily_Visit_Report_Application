@@ -31,7 +31,8 @@
         <activity android:name=".Login_Page"/>
 
         <activity android:name=".TodoListActivity" />
-        <activity android:name=".ExpensesAndBillsActivity" />
+        <activity android:name=".ExpensesAndBillsActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".CheckinNowActivity" />
         <activity
             android:name=".MainActivity"
