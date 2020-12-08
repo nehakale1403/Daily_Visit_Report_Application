@@ -55,6 +55,7 @@ public class PerformanceActivity extends AppCompatActivity {
         employref = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         CurrentUserId = mAuth.getCurrentUser().getUid();
+
         employref.keepSynced(true);
 
         checkinList = new ArrayList<>();
