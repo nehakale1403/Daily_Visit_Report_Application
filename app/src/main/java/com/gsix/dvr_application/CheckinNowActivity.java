@@ -229,10 +229,19 @@ public class CheckinNowActivity extends AppCompatActivity {
                             int checkincnti = Integer.parseInt(checkincount);
                             checkincnti++;
                             int valuei = 9999 - checkincnti;
+                            int checkinPercent=0;
+                            if(checkincnti>20)
+                            {
+                                checkinPercent=100;
+                            }
+                            else{
+                                checkinPercent=checkincnti/5;
+                            }
 
                             HashMap<String, Object> productMap1 = new HashMap<>();
                             productMap1.put("totalcheckin", String.valueOf(checkincnti));
                             productMap1.put("value", String.valueOf(valuei));
+                            productMap1.put("checkinPercent",checkinPercent);
 
                             databaseReference.child("Company").child(companyid).child("totalcheck").
                                     child(CurrentUserId).updateChildren(productMap1).addOnCompleteListener(new OnCompleteListener<Void>() {

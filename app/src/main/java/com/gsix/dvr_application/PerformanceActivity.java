@@ -40,9 +40,9 @@ public class PerformanceActivity extends AppCompatActivity {
     private PerformanceAdapter performanceAdapter;
     private List<Checkin> checkinList;
     private FirebaseAuth mAuth;
-    private String CurrentUserId, CompanyId;
-    private DatabaseReference employref, employref1;
-    private int pStatus = 80;
+    private String CurrentUserId, CompanyId,status;
+    private DatabaseReference employref, employref1,employref2;
+    private int pStatus = 70;
     private Handler handler = new Handler();
 
     @Override
@@ -53,8 +53,10 @@ public class PerformanceActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         recycleview = (RecyclerView) findViewById(R.id.recyclerranking);
         employref = FirebaseDatabase.getInstance().getReference();
+        employref2 = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         CurrentUserId = mAuth.getCurrentUser().getUid();
+
         employref.keepSynced(true);
 
         checkinList = new ArrayList<>();
@@ -63,27 +65,6 @@ public class PerformanceActivity extends AppCompatActivity {
         performanceAdapter = new PerformanceAdapter(PerformanceActivity.this,
                 checkinList);
         recycleview.setAdapter(performanceAdapter);
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (pStatus <= 100) {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            progressBar.setProgress(pStatus);
-                            txtProgress.setText(pStatus + "%");
-                        }
-                    });
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    //pStatus++;
-                }
-            }
-        }).start();
 
     }
 
@@ -98,6 +79,21 @@ public class PerformanceActivity extends AppCompatActivity {
                 {
                     CompanyId=snapshot.getValue().toString();
                 }
+                employref2.child("Company").child(CompanyId).child("totalcheck").child(CurrentUserId).child("checkinPercent").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists())
+                        {
+                            status=snapshot.getValue().toString();
+                            pStatus=Integer.parseInt(status);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
                 employref1 = FirebaseDatabase.getInstance().getReference().child("Company").child(CompanyId).child("totalcheck");
                 Query querydesc = employref1.orderByChild("value");
                 querydesc.addChildEventListener(new ChildEventListener() {
@@ -106,6 +102,7 @@ public class PerformanceActivity extends AppCompatActivity {
                         Checkin checkin = snapshot.getValue(Checkin.class);
                         checkinList.add(checkin);
                         performanceAdapter.notifyDataSetChanged();
+
                     }
 
                     @Override
@@ -135,6 +132,27 @@ public class PerformanceActivity extends AppCompatActivity {
 
             }
         });
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (pStatus <= 100) {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressBar.setProgress(pStatus);
+                            txtProgress.setText(pStatus + "%");
+                        }
+                    });
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    //pStatus++;
+                }
+            }
+        }).start();
 
     }
 }
