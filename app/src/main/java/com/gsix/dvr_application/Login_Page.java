@@ -32,7 +32,6 @@ public class Login_Page extends AppCompatActivity {
     private TextView btncompany;
     EditText email;
     EditText pass;
-    CheckBox remember;
     Button login;
     FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -48,24 +47,11 @@ public class Login_Page extends AppCompatActivity {
         email = (EditText) findViewById(R.id.emailID);
         pass = (EditText) findViewById(R.id.PasswordID);
         login = (Button) findViewById(R.id.loginbutton);
-        remember=(CheckBox) findViewById(R.id.remember_id);
         btncompany = (TextView) findViewById(R.id.btncompany);
         rootref = FirebaseDatabase.getInstance().getReference();
         build = new AlertDialog.Builder(this);
         loadingbar = new ProgressDialog(this);
         fAuth = FirebaseAuth.getInstance();
-
-        SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-        String checkbox = preferences.getString("remeber","");
-        if(checkbox.equals("true"))
-        {
-            Intent intent = new Intent(Login_Page.this,MainActivity.class);
-            startActivity(intent);
-        }
-        else if(checkbox.equals("false"))
-        {
-            Toast.makeText(Login_Page.this,"please sign in",Toast.LENGTH_SHORT).show();
-        }
 
 
         btncompany.setOnClickListener(new View.OnClickListener() {
@@ -73,27 +59,6 @@ public class Login_Page extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CompanyLogin.class);
                 startActivity(intent);
-            }
-        });
-        remember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","true");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"checked",Toast.LENGTH_SHORT).show();
-                }
-                else if(!compoundButton.isChecked())
-                {
-                    SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putString("remeber","false");
-                    editor.apply();
-                    Toast.makeText(Login_Page.this,"unchecked",Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
@@ -105,7 +70,9 @@ public class Login_Page extends AppCompatActivity {
                 if (mfirebaseuser != null) {
                     Toast.makeText(Login_Page.this, "Logged in", Toast.LENGTH_SHORT).show();
                     Intent I = new Intent(Login_Page.this, MainActivity.class);
+                    I.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(I);
+                    finish();
                 } else {
                     Toast.makeText(Login_Page.this, "Please LogIn", Toast.LENGTH_SHORT).show();
                 }
