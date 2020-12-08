@@ -98,6 +98,7 @@
             <Button
                 android:id="@+id/cancelBtntodo"
                 android:text="Cancel"
+                android:textColor="@color/colorWhite"
                 android:textAllCaps="false"
                 android:textColorHint="#fff"
                 android:background="@color/colorGray"
@@ -117,6 +118,7 @@
                 android:text="Save"
                 android:textAllCaps="false"
                 android:textColorHint="#fff"
+                android:textColor="@color/colorWhite"
                 android:background="@color/colorGray"
                 android:layout_margin="10dp"
                 android:textStyle="bold"
