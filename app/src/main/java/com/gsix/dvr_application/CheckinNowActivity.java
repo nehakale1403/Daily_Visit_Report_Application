@@ -95,7 +95,6 @@ public class CheckinNowActivity extends AppCompatActivity {
                             checkboxgreen.setVisibility(View.VISIBLE);
                             locping = false;
                             loadingbar.dismiss();
-                            Toast.makeText(getApplicationContext(),tvLatitude+"  "+ tvLongitude,Toast.LENGTH_SHORT).show();
                         } else {
                             loadingbar.dismiss();
                             gpsTracker.showSettingsAlert();
@@ -114,7 +113,6 @@ public class CheckinNowActivity extends AppCompatActivity {
                             checkboxgreen.setVisibility(View.VISIBLE);
                             locping = false;
                             loadingbar.dismiss();
-                            Toast.makeText(getApplicationContext(),tvLatitude+"  "+ tvLongitude,Toast.LENGTH_SHORT).show();
                         } else {
                             loadingbar.dismiss();
                             gpsTracker.showSettingsAlert();
@@ -241,7 +239,7 @@ public class CheckinNowActivity extends AppCompatActivity {
                             HashMap<String, Object> productMap1 = new HashMap<>();
                             productMap1.put("totalcheckin", String.valueOf(checkincnti));
                             productMap1.put("value", String.valueOf(valuei));
-                            productMap1.put("checkinPercent",checkinPercent);
+                            productMap1.put("checkinPercent",String.valueOf(checkinPercent));
 
                             databaseReference.child("Company").child(companyid).child("totalcheck").
                                     child(CurrentUserId).updateChildren(productMap1).addOnCompleteListener(new OnCompleteListener<Void>() {
