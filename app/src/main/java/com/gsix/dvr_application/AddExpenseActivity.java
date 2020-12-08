@@ -158,7 +158,7 @@ public class AddExpenseActivity extends AppCompatActivity {
 
             progressDlg.dismiss();
             Toast.makeText(AddExpenseActivity.this, "Expense uploaded successfully", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(AddExpenseActivity.this, DashboardFragment.class));
+            startActivity(new Intent(AddExpenseActivity.this, ExpensesAndBillsActivity.class));
             finish();
         }else {
             progressDlg.dismiss();
