@@ -27,6 +27,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.gsix.dvr_application.Model.Expense;
+import com.gsix.dvr_application.ui.dashboard.DashboardFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -156,8 +157,8 @@ public class AddExpenseActivity extends AppCompatActivity {
             });
 
             progressDlg.dismiss();
-
-            startActivity(new Intent(AddExpenseActivity.this, ExpensesAndBillsActivity.class));
+            Toast.makeText(AddExpenseActivity.this, "Expense uploaded successfully", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(AddExpenseActivity.this, DashboardFragment.class));
             finish();
         }else {
             progressDlg.dismiss();
