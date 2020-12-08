@@ -34,6 +34,7 @@ public class Login_Page extends AppCompatActivity {
     EditText pass;
     Button login;
     FirebaseAuth fAuth;
+    FirebaseUser firebaseUser;
     private FirebaseAuth.AuthStateListener authStateListener;
     DatabaseReference rootref;
     private ProgressDialog loadingbar;
@@ -52,6 +53,7 @@ public class Login_Page extends AppCompatActivity {
         build = new AlertDialog.Builder(this);
         loadingbar = new ProgressDialog(this);
         fAuth = FirebaseAuth.getInstance();
+        firebaseUser=fAuth.getCurrentUser();
 
 
         btncompany.setOnClickListener(new View.OnClickListener() {
@@ -148,5 +150,17 @@ public class Login_Page extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(firebaseUser!=null)
+        {
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+        }
     }
 }
